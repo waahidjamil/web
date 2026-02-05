@@ -1,0 +1,159 @@
+/* ============================================
+   GLOBAL.CSS — Shared Styles
+   ============================================
+   
+   Styles that apply to EVERY page:
+   - Body/typography defaults
+   - Heading styles
+   - Layout containers
+   - Utility classes
+   ============================================ */
+
+
+/* ----- BODY DEFAULTS ----- */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+  line-height: var(--leading-normal);
+  color: var(--color-dark-gray);
+  background-color: var(--color-white);
+}
+
+
+/* ----- TYPOGRAPHY ----- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  color: var(--color-navy);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-2xl);
+}
+
+h4 {
+  font-size: var(--text-xl);
+}
+
+h5 {
+  font-size: var(--text-lg);
+}
+
+h6 {
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  max-width: 65ch;
+}
+
+small,
+.text-small {
+  font-size: var(--text-sm);
+}
+
+a {
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gold);
+}
+
+strong {
+  font-weight: var(--weight-semibold);
+}
+
+
+/* ----- LAYOUT CONTAINERS ----- */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--max-width-narrow);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
+
+.section {
+  padding-top: var(--space-4xl);
+  padding-bottom: var(--space-4xl);
+}
+
+.section-sm {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-3xl);
+}
+
+
+/* ----- UTILITY CLASSES ----- */
+
+.text-center    { text-align: center; }
+.text-left      { text-align: left; }
+.text-right     { text-align: right; }
+
+.text-navy      { color: var(--color-navy); }
+.text-gold      { color: var(--color-gold); }
+.text-white     { color: var(--color-white); }
+.text-gray      { color: var(--color-mid-gray); }
+
+.bg-navy        { background-color: var(--color-navy); }
+.bg-off-white   { background-color: var(--color-off-white); }
+.bg-white       { background-color: var(--color-white); }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* ----- RESPONSIVE TYPOGRAPHY ----- */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--text-3xl);
+  }
+  h2 {
+    font-size: var(--text-2xl);
+  }
+  h3 {
+    font-size: var(--text-xl);
+  }
+  .section {
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
