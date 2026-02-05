@@ -21,7 +21,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: var(--space-md) 0;
+  padding: var(--space-sm) 0;
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--color-light-gray);
@@ -43,7 +43,7 @@
 }
 
 .navbar-logo {
-  height: 45px;
+  height: 120px;
   width: auto;
   display: block;
 }
