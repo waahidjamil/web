@@ -42,6 +42,12 @@
   letter-spacing: -0.01em;
 }
 
+.navbar-logo {
+  height: 45px;
+  width: auto;
+  display: block;
+}
+
 .navbar-brand:hover {
   color: var(--color-navy);
 }
