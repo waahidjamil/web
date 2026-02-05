@@ -69,6 +69,10 @@
   color: var(--color-navy);
 }
 
+.navbar-links a.btn-primary {
+  color: var(--color-white);
+}
+
 .navbar-toggle {
   display: none;
   flex-direction: column;
