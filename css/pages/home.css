@@ -53,10 +53,17 @@
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
   text-align: center;
   padding: var(--space-2xl) 0;
+}
+
+.stats-grid-bottom {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 60%;
+  margin: 0 auto;
+  padding-top: 0;
 }
 
 .stat-number {
@@ -79,6 +86,10 @@
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
+  }
+
+  .stats-grid-bottom {
+    max-width: 100%;
   }
 }
 
