@@ -1,0 +1,101 @@
+/* ============================================
+   HOME.CSS — Homepage-Specific Styles
+   ============================================
+   
+   Styles that ONLY apply to the homepage.
+   ============================================ */
+
+
+/* ----- HERO SECTION ----- */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
+  max-width: 14ch;
+}
+
+.hero p {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: var(--space-xl);
+  max-width: 50ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+
+/* ----- STATS BAR ----- */
+
+.stats-bar {
+  background-color: var(--color-off-white);
+  border-bottom: 1px solid var(--color-light-gray);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+  text-align: center;
+  padding: var(--space-2xl) 0;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-navy);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  color: var(--color-mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
+
+/* ----- INTRO SECTION ----- */
+
+.intro-section {
+  text-align: center;
+}
+
+.intro-section h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.intro-section p {
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--color-mid-gray);
+  font-size: var(--text-md);
+}
