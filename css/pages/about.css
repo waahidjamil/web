@@ -271,57 +271,56 @@
 .awards-section {
   text-align: center;
   background-color: var(--color-off-white);
+  overflow: hidden;
 }
 
 .awards-section h2 {
   margin-bottom: var(--space-3xl);
 }
 
-.awards-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-xl);
-  max-width: 1000px;
-  margin: 0 auto;
+.awards-marquee {
+  position: relative;
+  overflow: hidden;
 }
 
-.award-item {
+.awards-marquee::before,
+.awards-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.awards-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-off-white), transparent);
+}
+
+.awards-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-off-white), transparent);
+}
+
+.awards-marquee-track {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-2xl) var(--space-lg);
-  background-color: var(--color-white);
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(11, 29, 58, 0.04);
+  gap: var(--space-3xl);
+  width: max-content;
+  animation: awards-scroll 30s linear infinite;
 }
 
-.award-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--color-navy);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.awards-marquee-badge {
+  height: 100px;
+  width: auto;
+  flex-shrink: 0;
 }
 
-.award-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--color-gold);
-}
-
-.award-name {
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
-  color: var(--color-navy);
-}
-
-.award-detail {
-  font-size: var(--text-sm);
-  color: var(--color-mid-gray);
-  line-height: var(--leading-normal);
+@keyframes awards-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 
@@ -347,10 +346,6 @@
   }
 
   .about-stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .awards-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
