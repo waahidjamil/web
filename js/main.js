@@ -142,4 +142,25 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(statsSection);
   }
 
+  // ============================================
+  // FADE-UP SCROLL ANIMATIONS
+  // ============================================
+  var animateContainers = document.querySelectorAll('[data-animate]');
+  if (animateContainers.length) {
+    var fadeObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.fade-up').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    animateContainers.forEach(function (container) {
+      fadeObserver.observe(container);
+    });
+  }
+
 });
