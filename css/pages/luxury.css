@@ -631,7 +631,8 @@
 .showcase-label {
   position: absolute;
   bottom: 16px;
-  left: 16px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 12px;
   font-weight: var(--weight-semibold);
   letter-spacing: 1px;
