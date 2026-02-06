@@ -513,6 +513,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.property-card:hover .carousel-img {
+  transform: scale(1.05);
 }
 
 .slide-label {
@@ -590,6 +595,7 @@
   padding: var(--space-xl) var(--space-xl) var(--space-2xl);
   background-color: var(--color-navy);
   text-align: center;
+  border-top: 2px solid var(--color-gold);
 }
 
 .property-status {
