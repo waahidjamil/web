@@ -182,7 +182,6 @@
 
 .stats-bar {
   background-color: var(--color-off-white);
-  border-bottom: 1px solid var(--color-light-gray);
 }
 
 .stats-grid {
@@ -232,7 +231,8 @@
 
 .credentials-strip {
   text-align: center;
-  padding: var(--space-lg) 0 var(--space-xs);
+  padding: var(--space-2xl) 0;
+  background-color: var(--color-navy);
 }
 
 .credential-pill {
@@ -243,9 +243,9 @@
   font-weight: var(--weight-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-navy);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-light-gray);
+  color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  border: 1px solid rgba(201, 169, 110, 0.3);
   padding: 10px 24px;
   border-radius: 50px;
 }
@@ -291,9 +291,8 @@
 /* ----- AWARD BADGES MARQUEE ----- */
 
 .marquee-section {
-  background-color: var(--color-off-white);
+  background-color: var(--color-white);
   padding: var(--space-2xl) 0;
-  border-bottom: 1px solid var(--color-light-gray);
 }
 
 .marquee {
@@ -314,12 +313,12 @@
 
 .marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--color-off-white), transparent);
+  background: linear-gradient(to right, var(--color-white), transparent);
 }
 
 .marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--color-off-white), transparent);
+  background: linear-gradient(to left, var(--color-white), transparent);
 }
 
 .marquee-track {
