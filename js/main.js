@@ -166,4 +166,23 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ============================================
+  // BROTHERS SECTION STAGGER ANIMATION
+  // ============================================
+  var brothersSection = document.getElementById('brothersSection');
+  if (brothersSection) {
+    var brothersObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.stagger-card, .stagger-cta').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          brothersObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    brothersObserver.observe(brothersSection);
+  }
+
 });
