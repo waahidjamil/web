@@ -744,6 +744,9 @@
   font-size: var(--text-base);
   color: rgba(255, 255, 255, 0.4);
   font-weight: var(--weight-light);
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .types-grid {
