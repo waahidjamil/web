@@ -264,13 +264,14 @@
   z-index: 1;
 }
 
-.featured-content {
+.featured-bar {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  padding: 40px var(--space-3xl) 50px;
+  justify-content: center;
+  gap: var(--space-xl);
+  padding: 0 var(--space-xl);
+  height: 65px;
+  background-color: var(--color-navy);
 }
 
 .featured-tag {
@@ -281,62 +282,27 @@
   text-transform: uppercase;
   color: var(--color-navy);
   background-color: var(--color-gold);
-  padding: 6px 16px;
+  padding: 4px 12px;
   border-radius: 1px;
-  margin-bottom: var(--space-xl);
 }
 
-.featured-content h3 {
-  font-size: var(--text-3xl);
-  font-weight: var(--weight-medium);
+.featured-bar h3 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
   color: var(--color-white);
-  margin-bottom: var(--space-xs);
 }
 
 .featured-location {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.05em;
-  margin-bottom: var(--space-lg);
 }
 
 .featured-price {
   font-family: var(--font-heading);
-  font-size: var(--text-4xl);
-  font-weight: var(--weight-medium);
-  color: var(--color-gold);
-  margin-bottom: var(--space-lg);
-}
-
-.featured-desc {
-  font-size: var(--text-sm);
-  color: rgba(255, 255, 255, 0.5);
-  line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-2xl);
-  max-width: 400px;
-}
-
-.featured-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: var(--text-sm);
+  font-size: var(--text-xl);
   font-weight: var(--weight-semibold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: var(--color-gold);
-  transition: gap var(--transition-base);
-}
-
-.featured-cta:hover {
-  gap: 16px;
-  color: var(--color-gold);
-}
-
-.featured-cta svg {
-  width: 16px;
-  height: 16px;
-  fill: var(--color-gold);
 }
 
 /* Property Cards Grid */
@@ -532,12 +498,11 @@
 
 /* Luxury section responsive */
 @media (max-width: 768px) {
-  .featured-content {
-    padding: var(--space-2xl) var(--space-lg);
-  }
-
-  .featured-content h3 {
-    font-size: var(--text-2xl);
+  .featured-bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: var(--space-md) var(--space-lg);
+    gap: var(--space-sm) var(--space-lg);
   }
 
   .featured-price {
