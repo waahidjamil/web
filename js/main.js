@@ -93,4 +93,53 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ============================================
+  // STAT COUNT-UP ANIMATION
+  // ============================================
+  var statsSection = document.querySelector('.stats-bar');
+  if (statsSection) {
+    var statNumbers = statsSection.querySelectorAll('.stat-number[data-count]');
+    var hasAnimated = false;
+
+    function easeOutQuad(t) {
+      return t * (2 - t);
+    }
+
+    function animateCount(el) {
+      var target = parseInt(el.dataset.count, 10);
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 2000;
+      var start = null;
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var easedProgress = easeOutQuad(progress);
+        var current = Math.floor(easedProgress * target);
+        el.textContent = prefix + current + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = prefix + target + suffix;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !hasAnimated) {
+          hasAnimated = true;
+          statNumbers.forEach(function (el) {
+            animateCount(el);
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(statsSection);
+  }
+
 });
