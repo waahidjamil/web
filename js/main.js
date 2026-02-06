@@ -368,4 +368,57 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ============================================
+  // LUXURY PAGE — TESTIMONIAL CAROUSEL
+  // ============================================
+  var luxCarousel = document.getElementById('luxTestimonialCarousel');
+  if (luxCarousel) {
+    var luxSlides = luxCarousel.querySelectorAll('.lux-testimonial-slide');
+    var luxCounter = document.getElementById('luxTestCurrent');
+    var luxCurrent = 0;
+
+    function luxGoToSlide(i) {
+      if (i < 0) i = luxSlides.length - 1;
+      if (i >= luxSlides.length) i = 0;
+      luxSlides[luxCurrent].classList.remove('active');
+      luxCurrent = i;
+      luxSlides[luxCurrent].classList.add('active');
+      if (luxCounter) luxCounter.textContent = String(luxCurrent + 1).padStart(2, '0');
+    }
+
+    var luxPrev = document.getElementById('luxTestPrev');
+    var luxNext = document.getElementById('luxTestNext');
+    if (luxPrev) luxPrev.addEventListener('click', function () { luxGoToSlide(luxCurrent - 1); });
+    if (luxNext) luxNext.addEventListener('click', function () { luxGoToSlide(luxCurrent + 1); });
+
+    // Swipe support
+    var luxStartX = 0;
+    luxCarousel.addEventListener('touchstart', function (e) { luxStartX = e.touches[0].clientX; });
+    luxCarousel.addEventListener('touchend', function (e) {
+      var diff = luxStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        diff > 0 ? luxGoToSlide(luxCurrent + 1) : luxGoToSlide(luxCurrent - 1);
+      }
+    });
+  }
+
+  // ============================================
+  // LUXURY PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var luxSections = document.querySelectorAll('#luxUltraSection, #luxConciergeSection, #luxBaSection');
+  if (luxSections.length) {
+    var luxObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.ultra-card, .concierge-card, .ba-case').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          luxObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    luxSections.forEach(function (s) { luxObserver.observe(s); });
+  }
+
 });

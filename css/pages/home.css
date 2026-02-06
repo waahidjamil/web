@@ -278,7 +278,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: var(--text-sm);
+  font-size: 12px;
   font-weight: var(--weight-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
