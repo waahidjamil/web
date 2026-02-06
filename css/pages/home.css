@@ -496,6 +496,41 @@
   color: var(--color-gold);
 }
 
+/* Slide-in from left animation */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50%) translateX(-80px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.slide-in-left.is-visible {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+/* Gold shimmer animation */
+.gold-shimmer {
+  font-weight: var(--weight-bold) !important;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold) 0%,
+    var(--color-gold) 40%,
+    #f0dca8 50%,
+    var(--color-gold) 60%,
+    var(--color-gold) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+
 /* Property Cards Grid */
 .property-grid {
   display: grid;
@@ -700,6 +735,14 @@
     gap: var(--space-sm) var(--space-lg);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: none;
+  }
+
+  .slide-in-left {
+    transform: translateX(-80px);
+  }
+
+  .slide-in-left.is-visible {
+    transform: none;
   }
 
   .featured-media {

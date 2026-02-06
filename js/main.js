@@ -153,6 +153,9 @@ document.addEventListener('DOMContentLoaded', function () {
           entry.target.querySelectorAll('.fade-up').forEach(function (el) {
             el.classList.add('is-visible');
           });
+          if (entry.target.classList.contains('slide-in-left')) {
+            entry.target.classList.add('is-visible');
+          }
           fadeObserver.unobserve(entry.target);
         }
       });
