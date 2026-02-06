@@ -295,6 +295,46 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // VALUATION PAGE — FAQ ACCORDION
+  // ============================================
+  var faqQuestions = document.querySelectorAll('.faq-question');
+  if (faqQuestions.length) {
+    faqQuestions.forEach(function (question) {
+      question.addEventListener('click', function () {
+        var item = question.parentElement;
+        var wasOpen = item.classList.contains('open');
+        // Close all items first
+        document.querySelectorAll('.faq-item').forEach(function (i) {
+          i.classList.remove('open');
+        });
+        // Open clicked item if it wasn't already open
+        if (!wasOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+  }
+
+  // ============================================
+  // VALUATION PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var valSections = document.querySelectorAll('#valCompSection, #valAuditSection, #valIntelSection');
+  if (valSections.length) {
+    var valObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.comp-card, .audit-card, .intel-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          valObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    valSections.forEach(function (s) { valObserver.observe(s); });
+  }
+
+  // ============================================
   // SELL PAGE — TESTIMONIAL CAROUSEL
   // ============================================
   var sellCarousel = document.getElementById('sellTestimonialCarousel');
