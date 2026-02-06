@@ -682,6 +682,8 @@
 .dp-benefit-icon {
   margin-bottom: 10px;
   color: var(--color-gold);
+  display: flex;
+  justify-content: center;
 }
 
 .dp-benefit-icon svg {
