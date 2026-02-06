@@ -343,6 +343,135 @@
 
 
 /* =============================================
+   DUAL CTA CARDS
+   ============================================= */
+
+.dual-cta-section {
+  background-color: var(--color-off-white);
+}
+
+.dual-cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.dual-cta-card {
+  padding: 50px 44px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dual-cta-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.dual-cta-buy {
+  background: var(--color-white);
+  border: 1px solid rgba(11, 29, 58, 0.06);
+}
+
+.dual-cta-sell {
+  background: var(--color-navy);
+}
+
+.dual-cta-card h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-md);
+}
+
+.dual-cta-buy h3 {
+  color: var(--color-navy);
+}
+
+.dual-cta-sell h3 {
+  color: var(--color-white);
+}
+
+.dual-cta-card h3 em {
+  font-style: italic;
+  color: var(--color-gold);
+}
+
+.dual-cta-card p {
+  font-size: var(--text-base);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  max-width: 380px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.dual-cta-buy p {
+  color: var(--color-mid-gray);
+}
+
+.dual-cta-sell p {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dual-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.dual-cta-btn svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.dual-cta-btn-outline {
+  color: var(--color-navy);
+  border: 1.5px solid var(--color-navy);
+  background: transparent;
+}
+
+.dual-cta-btn-outline:hover {
+  background: var(--color-navy);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+.dual-cta-btn-filled {
+  background: var(--color-gold);
+  color: var(--color-navy);
+}
+
+.dual-cta-btn-filled:hover {
+  background: var(--color-white);
+  color: var(--color-navy);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .dual-cta-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dual-cta-card {
+    padding: 40px 28px;
+  }
+}
+
+
+/* =============================================
    SECTION LABEL (eyebrow text above headings)
    ============================================= */
 
