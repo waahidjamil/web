@@ -18,13 +18,23 @@ document.addEventListener('DOMContentLoaded', function () {
       navToggle.setAttribute('aria-expanded', isOpen);
     });
 
-    navLinks.querySelectorAll('a').forEach(function (link) {
+    navLinks.querySelectorAll('a:not(.nav-dropdown-toggle)').forEach(function (link) {
       link.addEventListener('click', function () {
         navLinks.classList.remove('is-open');
         navToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
+
+  // Mobile dropdown toggle
+  document.querySelectorAll('.nav-dropdown-toggle').forEach(function (toggle) {
+    toggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        toggle.closest('.nav-dropdown').classList.toggle('is-open');
+      }
+    });
+  });
 
   // ============================================
   // IMAGE CAROUSEL
