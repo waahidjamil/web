@@ -13,10 +13,18 @@
   display: flex;
   align-items: center;
   padding-top: 80px;
-  background-color: var(--color-navy);
+  background: url('../../images/Leesburg Front.png') center / cover no-repeat;
   color: var(--color-white);
   position: relative;
   overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 29, 58, 0.7);
+  z-index: 1;
 }
 
 .hero-content {
