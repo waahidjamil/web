@@ -220,6 +220,25 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // INVESTORS PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var investorSections = document.querySelectorAll('#strategySection, #typesSection, #casesSection');
+  if (investorSections.length) {
+    var investObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.strategy-text, .strategy-points, .type-card, .case-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          investObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    investorSections.forEach(function (s) { investObserver.observe(s); });
+  }
+
+  // ============================================
   // SELL PAGE — TESTIMONIAL CAROUSEL
   // ============================================
   var sellCarousel = document.getElementById('sellTestimonialCarousel');
