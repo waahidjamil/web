@@ -331,18 +331,18 @@
 
 /* Featured Property (Georgetown) */
 .featured-property {
-  margin-bottom: var(--space-xl);
-  background-color: var(--color-navy);
+  margin-bottom: var(--space-3xl);
   border-radius: var(--border-radius);
-  overflow: hidden;
+  overflow: visible;
 }
 
 .featured-media {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  overflow: hidden;
+  overflow: visible;
   background-color: #000;
+  border-radius: var(--border-radius);
 }
 
 .video-container {
@@ -417,14 +417,20 @@
   z-index: 1;
 }
 
-.featured-bar {
+.featured-card {
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: var(--space-xl);
-  padding: 0 var(--space-xl);
-  height: 65px;
+  padding: 20px 36px;
   background-color: var(--color-navy);
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+  white-space: nowrap;
 }
 
 .featured-tag {
@@ -439,7 +445,7 @@
   border-radius: 1px;
 }
 
-.featured-bar h3 {
+.featured-card h3 {
   font-size: var(--text-lg);
   font-weight: var(--weight-semibold);
   color: var(--color-white);
@@ -651,11 +657,25 @@
 
 /* Luxury section responsive */
 @media (max-width: 768px) {
-  .featured-bar {
+  .featured-card {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
     flex-wrap: wrap;
-    height: auto;
+    white-space: normal;
     padding: var(--space-md) var(--space-lg);
     gap: var(--space-sm) var(--space-lg);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: none;
+  }
+
+  .featured-media {
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+
+  .featured-property {
+    margin-bottom: var(--space-xl);
   }
 
   .featured-price {
