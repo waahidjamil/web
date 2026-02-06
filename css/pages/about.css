@@ -82,12 +82,6 @@
   min-height: 600px;
 }
 
-.story-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(11, 29, 58, 0.3), rgba(11, 29, 58, 0.1));
-}
 
 .story-photo {
   width: 100%;
