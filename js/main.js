@@ -254,6 +254,47 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // CONTACT PAGE — MULTI-STEP FORM
+  // ============================================
+  var cardForm = document.querySelector('.card-form');
+  if (cardForm) {
+    var formCurrent = 1;
+    var formTotal = 3;
+    var progressBar = document.getElementById('progressBar');
+    var stepNumEl = document.getElementById('stepNum');
+    var formSteps = cardForm.querySelectorAll('.form-step');
+
+    function updateFormProgress() {
+      if (progressBar) progressBar.style.width = (formCurrent / formTotal * 100) + '%';
+      if (stepNumEl) stepNumEl.textContent = formCurrent;
+    }
+
+    function showFormStep(step) {
+      formSteps.forEach(function (s) { s.classList.remove('active'); });
+      var target = cardForm.querySelector('.form-step[data-step="' + step + '"]');
+      if (target) target.classList.add('active');
+    }
+
+    cardForm.querySelectorAll('.btn-next').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (formCurrent >= formTotal) return;
+        formCurrent++;
+        showFormStep(formCurrent);
+        updateFormProgress();
+      });
+    });
+
+    cardForm.querySelectorAll('.btn-back').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        if (formCurrent <= 1) return;
+        formCurrent--;
+        showFormStep(formCurrent);
+        updateFormProgress();
+      });
+    });
+  }
+
+  // ============================================
   // SELL PAGE — TESTIMONIAL CAROUSEL
   // ============================================
   var sellCarousel = document.getElementById('sellTestimonialCarousel');
