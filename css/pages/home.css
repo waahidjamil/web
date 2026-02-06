@@ -270,7 +270,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: var(--space-4xl) var(--space-3xl);
+  padding: 40px var(--space-3xl) 50px;
 }
 
 .featured-tag {
