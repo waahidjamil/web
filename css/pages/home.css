@@ -768,6 +768,7 @@
 
 .intro-section {
   text-align: center;
+  padding-bottom: var(--space-xl);
 }
 
 .intro-section h2 {
@@ -802,6 +803,8 @@
   color: var(--color-mid-gray);
   font-weight: var(--weight-light);
   line-height: var(--leading-relaxed);
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .stagger-grid {
