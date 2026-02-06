@@ -185,4 +185,57 @@ document.addEventListener('DOMContentLoaded', function () {
     brothersObserver.observe(brothersSection);
   }
 
+  // ============================================
+  // SELL PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var sellSections = document.querySelectorAll('#sellStatsSection, #sellProcessSection, #sellComparisonSection');
+  if (sellSections.length) {
+    var sellObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.sell-stat-block, .sell-timeline-item, .sell-compare-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          sellObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    sellSections.forEach(function (s) { sellObserver.observe(s); });
+  }
+
+  // ============================================
+  // SELL PAGE — TESTIMONIAL CAROUSEL
+  // ============================================
+  var sellCarousel = document.getElementById('sellTestimonialCarousel');
+  if (sellCarousel) {
+    var sellSlides = sellCarousel.querySelectorAll('.sell-testimonial-slide');
+    var sellCounter = sellCarousel.querySelector('.sell-carousel-current');
+    var sellCurrent = 0;
+
+    function sellGoToSlide(i) {
+      if (i < 0) i = sellSlides.length - 1;
+      if (i >= sellSlides.length) i = 0;
+      sellSlides[sellCurrent].classList.remove('active');
+      sellCurrent = i;
+      sellSlides[sellCurrent].classList.add('active');
+      if (sellCounter) sellCounter.textContent = String(sellCurrent + 1).padStart(2, '0');
+    }
+
+    var sellPrev = document.getElementById('sellPrevBtn');
+    var sellNext = document.getElementById('sellNextBtn');
+    if (sellPrev) sellPrev.addEventListener('click', function () { sellGoToSlide(sellCurrent - 1); });
+    if (sellNext) sellNext.addEventListener('click', function () { sellGoToSlide(sellCurrent + 1); });
+
+    // Swipe support for testimonials
+    var sellStartX = 0;
+    sellCarousel.addEventListener('touchstart', function (e) { sellStartX = e.touches[0].clientX; });
+    sellCarousel.addEventListener('touchend', function (e) {
+      var diff = sellStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 40) {
+        diff > 0 ? sellGoToSlide(sellCurrent + 1) : sellGoToSlide(sellCurrent - 1);
+      }
+    });
+  }
+
 });
