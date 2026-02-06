@@ -222,12 +222,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // ============================================
   // INVESTORS PAGE — SCROLL ANIMATIONS
   // ============================================
-  var investorSections = document.querySelectorAll('#strategySection, #typesSection, #casesSection');
+  var investorSections = document.querySelectorAll('#typesSection, #casesSection, #ptSection, #dpSection, #sellDpSection');
   if (investorSections.length) {
     var investObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.strategy-text, .strategy-points, .type-card, .case-card').forEach(function (el) {
+          entry.target.querySelectorAll('.type-card, .case-card, .pt-card, .dp-card').forEach(function (el) {
             el.classList.add('is-visible');
           });
           investObserver.unobserve(entry.target);
@@ -236,6 +236,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.15 });
 
     investorSections.forEach(function (s) { investObserver.observe(s); });
+  }
+
+  // Diamond timeline — individual item observer
+  var dtItems = document.querySelectorAll('.dt-item');
+  if (dtItems.length) {
+    var dtObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          dtObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    dtItems.forEach(function (item) { dtObserver.observe(item); });
   }
 
   // ============================================
