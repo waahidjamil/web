@@ -266,7 +266,7 @@
   align-items: center;
   gap: 16px;
   width: max-content;
-  animation: credentials-scroll 35s linear infinite;
+  animation: credentials-scroll 48s linear infinite;
 }
 
 @keyframes credentials-scroll {
@@ -278,7 +278,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: var(--text-xs);
+  font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
   letter-spacing: 0.1em;
   text-transform: uppercase;
