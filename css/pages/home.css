@@ -231,8 +231,17 @@
 
 .credentials-strip {
   text-align: center;
-  padding: var(--space-2xl) 0;
+  padding: var(--space-2xl) var(--space-lg);
   background-color: var(--color-navy);
+}
+
+.credentials-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 .credential-pill {
