@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // ============================================
   // SELL PAGE — SCROLL ANIMATIONS
   // ============================================
-  var sellSections = document.querySelectorAll('#sellStatsSection, #sellProcessSection, #sellComparisonSection');
+  var sellSections = document.querySelectorAll('#sellStatsSection, #sellComparisonSection');
   if (sellSections.length) {
     var sellObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.sell-stat-block, .sell-timeline-item, .sell-compare-card').forEach(function (el) {
+          entry.target.querySelectorAll('.sell-stat-block, .sell-compare-card').forEach(function (el) {
             el.classList.add('is-visible');
           });
           sellObserver.unobserve(entry.target);
@@ -202,6 +202,21 @@ document.addEventListener('DOMContentLoaded', function () {
     }, { threshold: 0.15 });
 
     sellSections.forEach(function (s) { sellObserver.observe(s); });
+  }
+
+  // Individual timeline item observer (each triggers on its own)
+  var sellTimelineItems = document.querySelectorAll('.sell-timeline-item');
+  if (sellTimelineItems.length) {
+    var timelineObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          timelineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sellTimelineItems.forEach(function (item) { timelineObserver.observe(item); });
   }
 
   // ============================================

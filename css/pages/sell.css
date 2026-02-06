@@ -309,15 +309,35 @@
   margin-bottom: var(--space-3xl);
   position: relative;
   opacity: 0;
-  transform: translateY(30px);
 }
 
-.sell-timeline-item.is-visible { animation: sellFadeUp 0.6s ease forwards; }
-.sell-timeline-item:nth-child(2).is-visible { animation-delay: 0.1s; }
-.sell-timeline-item:nth-child(3).is-visible { animation-delay: 0.2s; }
-.sell-timeline-item:nth-child(4).is-visible { animation-delay: 0.3s; }
-.sell-timeline-item:nth-child(5).is-visible { animation-delay: 0.4s; }
-.sell-timeline-item:nth-child(6).is-visible { animation-delay: 0.5s; }
+/* Odd items (left side) slide in from the left */
+.sell-timeline-item:nth-child(odd) {
+  transform: translateX(-40px) translateY(20px);
+}
+
+/* Even items (right side) slide in from the right */
+.sell-timeline-item:nth-child(even) {
+  transform: translateX(40px) translateY(20px);
+}
+
+.sell-timeline-item.is-visible {
+  animation: sellSlideInLeft 0.7s ease forwards;
+}
+
+.sell-timeline-item:nth-child(even).is-visible {
+  animation-name: sellSlideInRight;
+}
+
+@keyframes sellSlideInLeft {
+  from { opacity: 0; transform: translateX(-40px) translateY(20px); }
+  to { opacity: 1; transform: translateX(0) translateY(0); }
+}
+
+@keyframes sellSlideInRight {
+  from { opacity: 0; transform: translateX(40px) translateY(20px); }
+  to { opacity: 1; transform: translateX(0) translateY(0); }
+}
 
 .sell-timeline-item:nth-child(odd) { flex-direction: row; }
 .sell-timeline-item:nth-child(even) { flex-direction: row-reverse; }
