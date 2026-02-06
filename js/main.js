@@ -222,12 +222,12 @@ document.addEventListener('DOMContentLoaded', function () {
   // ============================================
   // INVESTORS PAGE — SCROLL ANIMATIONS
   // ============================================
-  var investorSections = document.querySelectorAll('#typesSection, #casesSection, #ptSection, #dpSection, #sellDpSection');
+  var investorSections = document.querySelectorAll('#typesSection, #ptSection, #dpSection, #sellDpSection');
   if (investorSections.length) {
     var investObserver = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.querySelectorAll('.type-card, .case-card, .pt-card, .dp-card').forEach(function (el) {
+          entry.target.querySelectorAll('.type-card, .pt-card, .dp-card').forEach(function (el) {
             el.classList.add('is-visible');
           });
           investObserver.unobserve(entry.target);
