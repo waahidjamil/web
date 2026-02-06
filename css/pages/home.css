@@ -768,6 +768,7 @@
 
 .intro-section {
   text-align: center;
+  padding-top: var(--space-2xl);
   padding-bottom: var(--space-xl);
   background-color: var(--color-navy);
 }
