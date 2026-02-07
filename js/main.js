@@ -551,6 +551,31 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // SERVICES PAGE — SCROLL ANIMATIONS & PARALLAX
+  // ============================================
+  var svcItems = document.querySelectorAll('.svc-item');
+  if (svcItems.length) {
+    var svcObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          svcObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    svcItems.forEach(function (el) { svcObserver.observe(el); });
+
+    // Parallax on visual backgrounds
+    window.addEventListener('scroll', function () {
+      document.querySelectorAll('.svc-item-visual-bg').forEach(function (bg) {
+        var rect = bg.getBoundingClientRect();
+        var offset = (rect.top / window.innerHeight) * 30;
+        bg.style.transform = 'translateY(' + offset + 'px)';
+      });
+    });
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');
