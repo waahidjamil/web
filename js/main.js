@@ -458,6 +458,47 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // CASH OFFERS PAGE — TABLE COLUMN HOVER
+  // ============================================
+  var cashTable = document.querySelector('.cash-table');
+  if (cashTable) {
+    var allCells = cashTable.querySelectorAll('th, td');
+
+    function clearColumnHover() {
+      allCells.forEach(function (c) {
+        c.classList.remove('cash-col-gold-hover', 'cash-col-red-hover');
+      });
+    }
+
+    function highlightColumn(colIndex) {
+      var rows = cashTable.querySelectorAll('tr');
+      var hoverClass = colIndex === 1 ? 'cash-col-gold-hover' : 'cash-col-red-hover';
+      rows.forEach(function (row) {
+        var cells = row.querySelectorAll('th, td');
+        if (cells[colIndex]) {
+          cells[colIndex].classList.add(hoverClass);
+        }
+      });
+    }
+
+    allCells.forEach(function (cell) {
+      cell.addEventListener('mouseenter', function () {
+        var row = cell.parentElement;
+        var cells = row.querySelectorAll('th, td');
+        var colIndex = -1;
+        for (var i = 0; i < cells.length; i++) {
+          if (cells[i] === cell) { colIndex = i; break; }
+        }
+        if (colIndex < 1) return; // skip feature label column
+        clearColumnHover();
+        highlightColumn(colIndex);
+      });
+    });
+
+    cashTable.addEventListener('mouseleave', clearColumnHover);
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');

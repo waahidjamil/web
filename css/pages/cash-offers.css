@@ -304,6 +304,39 @@
   background: rgba(201, 169, 110, 0.02);
 }
 
+/* Column hover — base transitions */
+.cash-table th,
+.cash-table td {
+  transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Column hover — gold glow (column 2: Our Local Cash Offer) */
+.cash-table th.cash-col-gold-hover {
+  background: rgba(201, 169, 110, 0.18);
+  color: var(--color-navy);
+  box-shadow: inset 3px 0 0 var(--color-gold);
+}
+
+.cash-table td.cash-col-gold-hover {
+  background: rgba(201, 169, 110, 0.1);
+  box-shadow: inset 3px 0 0 var(--color-gold);
+}
+
+.cash-table td.cash-col-gold-hover strong {
+  color: var(--color-gold);
+}
+
+/* Column hover — red/negative tint (columns 3 & 4) */
+.cash-table th.cash-col-red-hover {
+  background: rgba(200, 50, 50, 0.08);
+  color: #8B2020;
+}
+
+.cash-table td.cash-col-red-hover {
+  background: rgba(200, 50, 50, 0.05);
+  color: #6B3030;
+}
+
 
 /* ----- PRIVATE CAPITAL SECTION ----- */
 
