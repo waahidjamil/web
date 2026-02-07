@@ -498,6 +498,42 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // FLEXIBLE COMMISSIONS PAGE — FAQ ACCORDION
+  // ============================================
+  var fcFaqQuestions = document.querySelectorAll('.fc-faq-question');
+  if (fcFaqQuestions.length) {
+    fcFaqQuestions.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.fc-faq-item');
+        var isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.fc-faq-item.is-open').forEach(function (o) {
+          o.classList.remove('is-open');
+        });
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  }
+
+  // ============================================
+  // FLEXIBLE COMMISSIONS PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var fcSections = document.querySelectorAll('#fcTiersSection, #fcFoundationSection, #fcStatsSection, #fcAreasSection');
+  if (fcSections.length) {
+    var fcObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.fc-tier-card, .fc-foundation-card, .fc-stat-card, .fc-area-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          fcObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fcSections.forEach(function (s) { fcObserver.observe(s); });
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');

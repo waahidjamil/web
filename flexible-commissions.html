@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexible Commissions — Jamil Brothers Realty Group</title>
+  <meta name="description" content="Premium real estate service on your terms. Choose from three tiered listing packages — Standard, Enhanced, or Ultra — and keep more of your equity in Northern Virginia.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS loaded in order: tokens → reset → global → components → page-specific -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages/flexible-commissions.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="navbar-brand"><img src="images/logo.png" alt="Jamil Brothers" class="navbar-logo"></a>
+      <button class="navbar-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div class="nav-dropdown">
+          <span class="nav-dropdown-toggle">Services</span>
+          <div class="nav-dropdown-menu">
+            <a href="sell.html">Sell My Home</a>
+            <a href="services.html#buy">Buy a Home</a>
+            <a href="valuation.html">Home Valuation</a>
+            <a href="cash-offers.html">Cash Offers</a>
+            <a href="flexible-commissions.html" class="active">Flexible Commissions</a>
+            <a href="luxury.html">Luxury & Concierge</a>
+            <a href="services.html#investment">Investment Properties</a>
+          </div>
+        </div>
+        <a href="luxury.html">Portfolio</a>
+        <div class="nav-dropdown">
+          <a href="investors.html" class="nav-dropdown-toggle">Investors</a>
+          <div class="nav-dropdown-menu">
+            <a href="investors.html">Investor Overview</a>
+            <a href="financing.html">Financing</a>
+          </div>
+        </div>
+        <a href="contact.html" class="btn btn-primary btn-sm">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="fc-hero">
+    <div class="fc-hero-line-left"></div>
+    <div class="fc-hero-line-right"></div>
+    <div class="fc-hero-content">
+      <span class="fc-hero-tag">Flexible Commissions</span>
+      <h1>Premium Service.<br><em>Your Terms.</em></h1>
+      <p class="fc-hero-sub">The traditional 6% model is outdated. We offer tiered listing packages that put you in control. Keep more equity while getting our signature luxury marketing across Northern Virginia.</p>
+      <div class="fc-hero-cta-group">
+        <a href="#tiers" class="fc-btn-gold">See Our Plans <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="fc-hero-badges">
+        <div class="fc-hero-badge"><span class="fc-hero-badge-icon">💎</span> Luxury Marketing Standard</div>
+        <div class="fc-hero-badge"><span class="fc-hero-badge-icon">🛡️</span> Cancel Anytime — Zero Fees</div>
+        <div class="fc-hero-badge"><span class="fc-hero-badge-icon">📈</span> Data-Driven Pricing</div>
+      </div>
+    </div>
+    <div class="fc-scroll-hint"><div class="fc-scroll-dot"></div><span>Scroll</span></div>
+  </section>
+
+  <!-- PRICING TIERS -->
+  <section class="fc-tiers-section" id="tiers">
+    <div class="container">
+      <span class="section-label">Choose Your Plan</span>
+      <h2>Three Tiers. <em>Zero Compromise.</em></h2>
+      <p class="fc-tiers-intro">Our Standard package already outperforms the average agent's premium. Upgrade to our next-gen marketing tiers to dominate the algorithms.</p>
+
+      <div class="fc-tiers-grid" id="fcTiersSection">
+        <!-- STANDARD -->
+        <div class="fc-tier-card">
+          <span class="fc-tier-badge">Standard</span>
+          <h3>Essentials</h3>
+          <p class="fc-tier-subtitle">Luxury-level fundamentals</p>
+          <div class="fc-tier-stat">40%</div>
+          <p class="fc-tier-stat-label">More Views Than Avg.</p>
+          <ul class="fc-tier-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Full MLS Syndication (Redfin, Zillow)</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Pro HDR Photography</strong> — no cell phones</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>High-Gloss Property Brochures</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Strategic Open House Launch</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Custom Social Media Content</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>SOLD Guarantee</strong> Program</span></li>
+          </ul>
+          <a href="contact.html" class="fc-tier-cta">Get Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- ENHANCED (FEATURED) -->
+        <div class="fc-tier-card fc-tier-featured">
+          <span class="fc-tier-badge">Most Popular</span>
+          <h3>Enhanced</h3>
+          <p class="fc-tier-subtitle">Digital Exposure Package</p>
+          <div class="fc-tier-stat">80%</div>
+          <p class="fc-tier-stat-label">More Views Than Avg.</p>
+          <ul class="fc-tier-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Everything in Standard, plus:</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Virtual Staging</strong> — digitally furnished rooms</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Active Social Ads</strong> with retargeting</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Reverse Prospecting</strong> — target matching agents</span></li>
+          </ul>
+          <a href="contact.html" class="fc-tier-cta">Get Enhanced Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+
+        <!-- PREMIUM -->
+        <div class="fc-tier-card">
+          <span class="fc-tier-badge">Premium</span>
+          <h3>Ultra</h3>
+          <p class="fc-tier-subtitle">High-Budget Ad Campaigns</p>
+          <div class="fc-tier-stat">MAX</div>
+          <p class="fc-tier-stat-label">Maximum Exposure</p>
+          <ul class="fc-tier-list">
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span>Everything in Enhanced, plus:</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Zillow Showcase</strong> — top of search results</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Geo-Fencing</strong> — ads at competing open houses</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Cinema-Quality 4K</strong> drone & interior video</span></li>
+            <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg><span><strong>Aggressive Paid Retargeting</strong> campaigns</span></li>
+          </ul>
+          <a href="contact.html" class="fc-tier-cta">Get Premium Quote <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDATION -->
+  <section class="fc-foundation-section" id="fcFoundationSection">
+    <div class="container">
+      <span class="section-label">Every Plan Includes</span>
+      <h2>The Foundation: <em>Full Service.</em></h2>
+      <p class="fc-foundation-intro">Unlike discount brokers who cut services to cut costs, we provide a high-performance selling system as standard. Your equity is protected by proven expertise.</p>
+
+      <div class="fc-foundation-grid">
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">📈</div>
+          <h4>Strategic Pricing Analysis</h4>
+          <p>Advanced data modeling and local market insights to position your home for maximum buyer attraction and a higher final sale price.</p>
+        </div>
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">📷</div>
+          <h4>Luxury Photography</h4>
+          <p>High-definition, professionally edited photography that makes your home the most clicked property in its zip code.</p>
+        </div>
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">🌍</div>
+          <h4>Global Syndication</h4>
+          <p>Your listing broadcast to Zillow, Realtor.com, Redfin, and 100+ international portals to capture every potential buyer.</p>
+        </div>
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">⚔️</div>
+          <h4>Elite Negotiation</h4>
+          <p>We don't just pass along offers. We fight for your bottom line using proven tactics for better terms and higher appraisal protection.</p>
+        </div>
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">📄</div>
+          <h4>White-Glove Support</h4>
+          <p>From legal disclosures to inspection negotiations, our team handles every detail for a seamless, stress-free closing.</p>
+        </div>
+        <div class="fc-foundation-card">
+          <div class="fc-foundation-icon">🏆</div>
+          <h4>Top 1% Expertise</h4>
+          <p>Direct access to the Jamil Brothers. A decade of experience as NVAR Top Producers managing your home sale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="fc-stats-section" id="fcStatsSection">
+    <div class="container">
+      <span class="section-label">Track Record</span>
+      <h2>Proven Results Across <em>Northern Virginia.</em></h2>
+      <p class="fc-stats-subtitle">Our flexible commission plans are backed by a decade of market-leading performance and hundreds of successful closings.</p>
+      <div class="fc-stats-grid">
+        <div class="fc-stat-card"><span class="fc-stat-number">800+</span><span class="fc-stat-label">Families Served<br>Loudoun, Fairfax & Prince William</span></div>
+        <div class="fc-stat-card"><span class="fc-stat-number">$500M+</span><span class="fc-stat-label">Total Sales Volume<br>Verified MLS History</span></div>
+        <div class="fc-stat-card"><span class="fc-stat-number">300+</span><span class="fc-stat-label">5-Star Reviews<br>Zillow, Google & Facebook</span></div>
+        <div class="fc-stat-card"><span class="fc-stat-number">Top 1%</span><span class="fc-stat-label">NVAR Producers<br>Ranked Nationwide</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="fc-areas-section" id="fcAreasSection">
+    <div class="container">
+      <span class="section-label">Local Expertise</span>
+      <h2>Hyper-Local Knowledge. <em>Proven Success.</em></h2>
+      <p class="fc-areas-intro">Algorithms don't know the nuances of Northern Virginia neighborhoods — we do. From school district shifts to HOA trends, we've helped 840+ families maximize equity.</p>
+      <div class="fc-areas-grid">
+        <div class="fc-area-card"><h4>Ashburn & Leesburg</h4><p>Loudoun's Premier Tech & Estate Corridors</p></div>
+        <div class="fc-area-card"><h4>Fairfax & Vienna</h4><p>Established Luxury & Commuter Hubs</p></div>
+        <div class="fc-area-card"><h4>Reston & Herndon</h4><p>Modern Living & High-Growth Markets</p></div>
+        <div class="fc-area-card"><h4>Prince William Co.</h4><p>Growth-Focused Residential Communities</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="fc-cta-section">
+    <div class="container">
+      <span class="section-label">Get Started</span>
+      <h2>Ready to Keep More <em>Equity?</em></h2>
+      <p class="fc-cta-desc">Meet with the Jamil Brothers to review your goals, timing, and home features. We'll help you select the perfect flexible commission tier.</p>
+      <a href="contact.html" class="fc-cta-btn">Start Your Strategy Session <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="fc-faq-section">
+    <div class="container">
+      <span class="section-label">Common Questions</span>
+      <h2>Seller <em>FAQ.</em></h2>
+      <div class="fc-faq-list">
+        <div class="fc-faq-item">
+          <button class="fc-faq-question"><span>How do flexible real estate commissions work?</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="fc-faq-answer"><p>Our flexible commission structure allows you to choose a service level that fits your specific property and goals. Whether you're selling a luxury home in Great Falls or a townhouse in Ashburn, you select the Standard, Enhanced, or Premium plan that maximizes your net equity.</p></div>
+        </div>
+        <div class="fc-faq-item">
+          <button class="fc-faq-question"><span>What's the difference between Standard, Enhanced, and Premium?</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="fc-faq-answer"><p>Standard covers all essentials at a luxury level — pro photography, MLS syndication, and strategic marketing. Enhanced adds virtual staging, social ad retargeting, and reverse prospecting. Premium goes all-in with Zillow Showcase, geo-fencing, 4K cinema video, and aggressive paid campaigns.</p></div>
+        </div>
+        <div class="fc-faq-item">
+          <button class="fc-faq-question"><span>Are there any upfront costs or termination fees?</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="fc-faq-answer"><p>No. There are zero upfront costs and you can cancel anytime with no termination fees. We only get paid when your home sells. We're invested in your success — not locked-in contracts.</p></div>
+        </div>
+        <div class="fc-faq-item">
+          <button class="fc-faq-question"><span>Do I still pay the buyer's agent commission?</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="fc-faq-answer"><p>Buyer broker compensation is separate, negotiable, and determined by you as the seller. Our flexible commission refers to the listing side fee. We'll advise you on competitive buyer agent offerings based on current market conditions.</p></div>
+        </div>
+        <div class="fc-faq-item">
+          <button class="fc-faq-question"><span>How much can I actually save vs. a traditional 6% commission?</span><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="fc-faq-answer"><p>On a $800,000 home, the difference between a 3% listing fee and our flexible rate can save you $12,000 or more — while still receiving premium marketing that outperforms most full-price agents. We show you the exact savings in your personalized net sheet.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEGAL -->
+  <section class="fc-legal">
+    <div class="fc-legal-inner">
+      <p class="fc-legal-text"><strong>Commission Disclosure:</strong> The listing commission refers to the fee paid to Samson Properties / The Jamil Brothers Realty Group. Buyer broker compensation is separate, negotiable, and determined by the seller. Minimum fees may apply in certain transactions.</p>
+      <p class="fc-legal-text"><strong>Brokerage:</strong> The Jamil Brothers Realty Group operates under Samson Properties. Main Office: Leesburg, VA. Equal Housing Opportunity.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">JAMIL BROTHERS</div>
+          <p class="footer-description">High-performance real estate across Virginia, Maryland, Washington DC, and West Virginia.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Navigate</div>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="investors.html">Investors</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li><a href="services.html">Buy a Home</a></li>
+            <li><a href="services.html">Sell a Home</a></li>
+            <li><a href="services.html">Listings</a></li>
+            <li><a href="services.html">Agent Support</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li><a href="contact.html">Get in Touch</a></li>
+            <li><a href="mailto:info@jamilbrothers.com">Email Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-disclaimer">The Jamil Brothers Realty Group operates under Samson Properties. All real estate information is deemed reliable but not guaranteed. This website does not constitute legal, financial, or tax advice. Equal Housing Opportunity.</p>
+      <div class="footer-bottom">
+        <span>&copy; 2025 Jamil Brothers Realty Group. All rights reserved.</span>
+        <span>VA &bull; MD &bull; DC &bull; WV</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
