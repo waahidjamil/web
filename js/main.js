@@ -472,7 +472,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function highlightColumn(colIndex) {
       var rows = cashTable.querySelectorAll('tr');
-      var hoverClass = colIndex === 1 ? 'cash-col-gold-hover' : 'cash-col-red-hover';
+      var hoverClass = colIndex === 3 ? 'cash-col-gold-hover' : 'cash-col-red-hover';
       rows.forEach(function (row) {
         var cells = row.querySelectorAll('th, td');
         if (cells[colIndex]) {
