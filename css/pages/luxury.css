@@ -778,8 +778,8 @@
   margin-top: 4px;
 }
 
-.ba-before .ba-card-note { color: var(--color-light-gray); }
-.ba-after .ba-card-note { color: rgba(255, 255, 255, 0.25); }
+.ba-before .ba-card-note { color: #666; }
+.ba-after .ba-card-note { color: rgba(255, 255, 255, 0.7); }
 
 .ba-arrow {
   display: flex;
