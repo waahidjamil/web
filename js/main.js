@@ -636,6 +636,36 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // ARSLAN PAGE — ROTATING CONIC GRADIENT & TIMELINE
+  // ============================================
+  var arExpCards = document.querySelectorAll('.ar-exp-card');
+  if (arExpCards.length) {
+    var arAngle = 0;
+    function arRotateGlow() {
+      arAngle = (arAngle + 1) % 360;
+      arExpCards.forEach(function (c) {
+        c.style.setProperty('--angle', arAngle + 'deg');
+      });
+      requestAnimationFrame(arRotateGlow);
+    }
+    arRotateGlow();
+  }
+
+  // Arslan timeline fade-in
+  var arTimeline = document.querySelector('.ar-approach-timeline[data-animate]');
+  if (arTimeline) {
+    var arTimelineObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          arTimelineObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    arTimelineObserver.observe(arTimeline);
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');
