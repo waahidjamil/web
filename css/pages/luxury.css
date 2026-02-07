@@ -583,13 +583,9 @@
   overflow: hidden;
   position: relative;
   aspect-ratio: 4 / 3;
-  background: var(--color-navy-light);
+  background: #0B1D3A;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: all 0.3s;
-  cursor: pointer;
 }
 
 .showcase-card:hover {
@@ -598,34 +594,14 @@
   border-color: rgba(197, 164, 103, 0.2);
 }
 
-.showcase-play {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: rgba(197, 164, 103, 0.15);
-  border: 2px solid var(--color-gold);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-
-.showcase-card:hover .showcase-play {
-  background: var(--color-gold);
-  transform: scale(1.1);
-}
-
-.showcase-play svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--color-gold);
-  stroke: none;
-  margin-left: 3px;
-  transition: fill 0.3s;
-}
-
-.showcase-card:hover .showcase-play svg {
-  fill: var(--color-navy);
+.showcase-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .showcase-label {
