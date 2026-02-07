@@ -489,9 +489,8 @@ document.addEventListener('DOMContentLoaded', function () {
         for (var i = 0; i < cells.length; i++) {
           if (cells[i] === cell) { colIndex = i; break; }
         }
-        if (colIndex < 1) return; // skip feature label column
         clearColumnHover();
-        highlightColumn(colIndex);
+        if (colIndex >= 1) highlightColumn(colIndex);
       });
     });
 
