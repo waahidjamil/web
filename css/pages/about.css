@@ -265,6 +265,12 @@
 }
 
 
+/* ----- DUAL CTA OVERRIDE ----- */
+
+.dual-cta-section {
+  background-color: #FFFFFF;
+}
+
 /* ----- AWARDS SECTION ----- */
 
 .awards-section {
