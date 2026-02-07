@@ -872,6 +872,7 @@
 .fin-legal {
   padding: var(--space-3xl) 0;
   background: var(--color-navy-dark);
+  text-align: center;
 }
 
 .fin-legal-inner {
