@@ -329,51 +329,51 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
 }
 
-/* Primary (Arslan — navy) */
-.fin-team-primary {
-  background: var(--color-navy);
+/* Primary (Arslan — navy) — doubled specificity to override .fin-strategy-card */
+.fin-team-card.fin-team-primary {
+  background: #0B1D3A;
   border: 1px solid rgba(201, 169, 110, 0.15);
 }
 
-.fin-team-primary .fin-team-tag {
+.fin-team-card.fin-team-primary .fin-team-tag {
   background: var(--color-gold);
   color: var(--color-navy);
 }
 
-.fin-team-primary h3 {
+.fin-team-card.fin-team-primary h3 {
   color: var(--color-white);
 }
 
-.fin-team-primary .fin-team-role {
+.fin-team-card.fin-team-primary .fin-team-role {
   color: var(--color-gold);
 }
 
-.fin-team-primary .fin-team-nmls {
+.fin-team-card.fin-team-primary .fin-team-nmls {
   color: rgba(255, 255, 255, 0.3);
 }
 
-.fin-team-primary .fin-team-desc {
+.fin-team-card.fin-team-primary .fin-team-desc {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.fin-team-primary .fin-team-desc strong {
+.fin-team-card.fin-team-primary .fin-team-desc strong {
   color: var(--color-white);
 }
 
-.fin-team-primary .fin-team-list li {
+.fin-team-card.fin-team-primary .fin-team-list li {
   color: rgba(255, 255, 255, 0.55);
 }
 
-.fin-team-primary .fin-team-list li svg {
+.fin-team-card.fin-team-primary .fin-team-list li svg {
   stroke: var(--color-gold);
 }
 
-.fin-team-primary .fin-team-link {
+.fin-team-card.fin-team-primary .fin-team-link {
   color: var(--color-navy);
   background: var(--color-gold);
 }
 
-.fin-team-primary .fin-team-link:hover {
+.fin-team-card.fin-team-primary .fin-team-link:hover {
   background: var(--color-white);
   transform: translateY(-2px);
 }
@@ -436,7 +436,7 @@
   overflow: hidden;
 }
 
-.fin-team-primary .fin-team-photo::after {
+.fin-team-card.fin-team-primary .fin-team-photo::after {
   content: '';
   position: absolute;
   bottom: 0;
