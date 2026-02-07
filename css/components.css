@@ -81,6 +81,15 @@
 
 /* --- Nav Dropdown --- */
 
+.nav-dropdown-toggle {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-dark-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: default;
+}
+
 .nav-dropdown {
   position: relative;
 }
