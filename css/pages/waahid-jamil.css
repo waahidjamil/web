@@ -32,8 +32,8 @@
 .profile-hero-photo-img {
   position: relative;
   z-index: 2;
-  width: 85%;
-  max-width: 480px;
+  width: 90%;
+  max-width: 550px;
   aspect-ratio: 3 / 4;
   background: var(--color-navy-light);
   border-radius: 10px;
