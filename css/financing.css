@@ -332,6 +332,7 @@
 /* Primary (Arslan — navy) */
 .fin-team-primary {
   background: var(--color-navy);
+  border: 1px solid rgba(201, 169, 110, 0.15);
 }
 
 .fin-team-primary .fin-team-tag {
@@ -344,11 +345,11 @@
 }
 
 .fin-team-primary .fin-team-role {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-gold);
 }
 
 .fin-team-primary .fin-team-nmls {
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .fin-team-primary .fin-team-desc {
@@ -356,11 +357,11 @@
 }
 
 .fin-team-primary .fin-team-desc strong {
-  color: var(--color-gold);
+  color: var(--color-white);
 }
 
 .fin-team-primary .fin-team-list li {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 .fin-team-primary .fin-team-list li svg {
@@ -429,9 +430,21 @@
 
 /* Shared team card internals */
 .fin-team-photo {
+  position: relative;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+}
+
+.fin-team-primary .fin-team-photo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to bottom, transparent, var(--color-navy));
+  pointer-events: none;
 }
 
 .fin-team-photo img {
