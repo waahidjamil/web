@@ -551,6 +551,66 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // ABOUT PAGE — SCROLL ANIMATIONS & STAT COUNT-UP
+  // ============================================
+  var aboutAnimEls = document.querySelectorAll('.story-image[data-animate]');
+  if (aboutAnimEls.length) {
+    var aboutObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          aboutObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    aboutAnimEls.forEach(function (el) { aboutObserver.observe(el); });
+  }
+
+  // About stats count-up
+  var aboutStatsSection = document.querySelector('.about-stats');
+  if (aboutStatsSection) {
+    var aboutStatNumbers = aboutStatsSection.querySelectorAll('.about-stat-number[data-count]');
+    var aboutStatsAnimated = false;
+
+    function aboutEaseOut(t) { return t * (2 - t); }
+
+    function aboutAnimateCount(el) {
+      var target = parseInt(el.dataset.count, 10);
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 2000;
+      var start = null;
+
+      function step(timestamp) {
+        if (!start) start = timestamp;
+        var progress = Math.min((timestamp - start) / duration, 1);
+        var current = Math.floor(aboutEaseOut(progress) * target);
+        el.textContent = prefix + current + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = prefix + target + suffix;
+        }
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    var aboutStatsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !aboutStatsAnimated) {
+          aboutStatsAnimated = true;
+          aboutStatNumbers.forEach(function (el) {
+            aboutAnimateCount(el);
+          });
+        }
+      });
+    }, { threshold: 0.12 });
+
+    aboutStatsObserver.observe(aboutStatsSection);
+  }
+
+  // ============================================
   // SERVICES PAGE — SCROLL ANIMATIONS & PARALLAX
   // ============================================
   var svcItems = document.querySelectorAll('.svc-item');
