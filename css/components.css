@@ -372,7 +372,8 @@
 
 .dual-cta-buy {
   background: var(--color-white);
-  border: 1px solid rgba(11, 29, 58, 0.06);
+  border: 1px solid rgba(11, 29, 58, 0.08);
+  box-shadow: 0 4px 20px rgba(11, 29, 58, 0.06);
 }
 
 .dual-cta-sell {
