@@ -201,6 +201,7 @@
   text-transform: uppercase;
   color: var(--color-gold);
   margin-bottom: var(--space-lg);
+  text-align: center;
 }
 
 .team-bio {
