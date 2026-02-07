@@ -249,7 +249,7 @@
 
 .fc-tier-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(11, 29, 58, 0.08);
+  box-shadow: 0 20px 60px rgba(11, 29, 58, 0.1);
 }
 
 .fc-tier-card.fc-tier-featured {
