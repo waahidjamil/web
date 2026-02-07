@@ -265,7 +265,7 @@
 
 .awards-section {
   text-align: center;
-  background-color: var(--color-off-white);
+  background-color: #FFFFFF;
   overflow: hidden;
 }
 
@@ -291,12 +291,12 @@
 
 .awards-marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--color-off-white), transparent);
+  background: linear-gradient(to right, #FFFFFF, transparent);
 }
 
 .awards-marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--color-off-white), transparent);
+  background: linear-gradient(to left, #FFFFFF, transparent);
 }
 
 .awards-marquee-track {
@@ -314,8 +314,8 @@
 }
 
 @keyframes awards-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(-25%); }
 }
 
 
