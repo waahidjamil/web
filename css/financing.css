@@ -872,21 +872,23 @@
 .fin-legal {
   padding: var(--space-3xl) 0;
   background: var(--color-navy-dark);
-  text-align: center;
+  text-align: center !important;
 }
 
 .fin-legal-inner {
   max-width: 700px;
   margin: 0 auto;
   padding: 0 var(--space-xl);
-  text-align: center;
+  text-align: center !important;
 }
 
 .fin-legal-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  margin-bottom: var(--space-lg);
+  margin: 0 auto var(--space-lg);
+  text-align: center !important;
 }
 
 .fin-legal-badge svg {
@@ -911,7 +913,10 @@
   color: rgba(255, 255, 255, 0.35);
   line-height: 1.8;
   font-weight: var(--weight-light);
+  margin-left: auto !important;
+  margin-right: auto !important;
   margin-bottom: var(--space-md);
+  text-align: center !important;
 }
 
 .fin-legal-text strong {
@@ -943,6 +948,9 @@
   color: rgba(255, 255, 255, 0.2);
   font-weight: var(--weight-light);
   font-style: italic;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
 }
 
 
