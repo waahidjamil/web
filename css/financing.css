@@ -434,6 +434,8 @@
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  padding: 0;
+  margin: 0;
 }
 
 .fin-team-card.fin-team-primary .fin-team-photo::after {
@@ -459,6 +461,7 @@
 
 .fin-team-info {
   padding: 36px 32px;
+  text-align: center;
 }
 
 .fin-team-tag {
@@ -500,15 +503,17 @@
 
 .fin-team-list {
   list-style: none;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   gap: 12px;
   margin-bottom: var(--space-xl);
+  text-align: left;
 }
 
 .fin-team-list li {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-size: var(--text-sm);
 }
