@@ -422,6 +422,42 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // CASH OFFERS PAGE — FAQ ACCORDION
+  // ============================================
+  var cashFaqQuestions = document.querySelectorAll('.cash-faq-question');
+  if (cashFaqQuestions.length) {
+    cashFaqQuestions.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = this.closest('.cash-faq-item');
+        var isOpen = item.classList.contains('is-open');
+        document.querySelectorAll('.cash-faq-item.is-open').forEach(function (o) {
+          o.classList.remove('is-open');
+        });
+        if (!isOpen) item.classList.add('is-open');
+      });
+    });
+  }
+
+  // ============================================
+  // CASH OFFERS PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var cashSections = document.querySelectorAll('#cashCapitalSection, #cashSituationsSection, #cashStepsSection');
+  if (cashSections.length) {
+    var cashObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.cash-capital-card, .cash-situation-card, .cash-step-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          cashObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    cashSections.forEach(function (s) { cashObserver.observe(s); });
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');
