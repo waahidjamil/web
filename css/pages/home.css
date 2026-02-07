@@ -332,7 +332,7 @@
 /* ----- AWARD BADGES MARQUEE ----- */
 
 .marquee-section {
-  background-color: var(--color-navy);
+  background-color: var(--color-white);
   min-height: 140px;
   padding: var(--space-2xl) 0;
 }
@@ -355,12 +355,12 @@
 
 .marquee::before {
   left: 0;
-  background: linear-gradient(to right, var(--color-navy), transparent);
+  background: linear-gradient(to right, var(--color-white), transparent);
 }
 
 .marquee::after {
   right: 0;
-  background: linear-gradient(to left, var(--color-navy), transparent);
+  background: linear-gradient(to left, var(--color-white), transparent);
 }
 
 .marquee-track {
@@ -375,7 +375,6 @@
   height: 90px;
   width: auto;
   flex-shrink: 0;
-  background-color: rgba(255, 255, 255, 0.05);
 }
 
 @keyframes marquee-scroll {
@@ -383,7 +382,7 @@
     transform: translateX(-50%);
   }
   100% {
-    transform: translateX(0);
+    transform: translateX(-25%);
   }
 }
 
