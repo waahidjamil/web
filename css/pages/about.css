@@ -196,6 +196,12 @@
   margin: 0 auto;
 }
 
+.team-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
 .team-card {
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -204,6 +210,14 @@
 .team-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 32px rgba(11, 29, 58, 0.10);
+}
+
+.team-card-link .team-card:hover h3 {
+  color: var(--color-gold);
+}
+
+.team-card-link .team-card h3 {
+  transition: color 0.3s ease;
 }
 
 .team-photo {
