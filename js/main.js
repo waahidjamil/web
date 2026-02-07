@@ -611,6 +611,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // SAAD PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var sdAnimEls = document.querySelectorAll('.sd-about [data-animate], .sd-academy [data-animate]');
+  if (sdAnimEls.length) {
+    var sdObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          sdObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    sdAnimEls.forEach(function (el) { sdObserver.observe(el); });
+  }
+
+  // ============================================
   // SERVICES PAGE — SCROLL ANIMATIONS & PARALLAX
   // ============================================
   var svcItems = document.querySelectorAll('.svc-item');
