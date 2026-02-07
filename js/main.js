@@ -421,4 +421,23 @@ document.addEventListener('DOMContentLoaded', function () {
     luxSections.forEach(function (s) { luxObserver.observe(s); });
   }
 
+  // ============================================
+  // FINANCING PAGE — SCROLL ANIMATIONS
+  // ============================================
+  var finSections = document.querySelectorAll('#team, #finStrategiesSection');
+  if (finSections.length) {
+    var finObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.fin-strategy-card').forEach(function (el) {
+            el.classList.add('is-visible');
+          });
+          finObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    finSections.forEach(function (s) { finObserver.observe(s); });
+  }
+
 });
