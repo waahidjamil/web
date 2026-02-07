@@ -115,6 +115,7 @@
   color: rgba(255, 255, 255, 0.8) !important;
   text-transform: none !important;
   letter-spacing: 0 !important;
+  text-align: center;
   transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
