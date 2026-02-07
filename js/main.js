@@ -682,6 +682,22 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // LUXURY PAGE — SHOWCASE VIDEO SCROLL REVEAL
+  // ============================================
+  var luxShowcase = document.querySelector('.showcase-block[data-animate]');
+  if (luxShowcase) {
+    var luxShowcaseObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          luxShowcaseObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    luxShowcaseObs.observe(luxShowcase);
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');
