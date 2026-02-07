@@ -534,6 +534,23 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ============================================
+  // INVESTMENT PROPERTIES PAGE — SCROLL ANIMATIONS
+  // (data-animate and data-animate-stagger observer)
+  // ============================================
+  var invAnimEls = document.querySelectorAll('.inv-thesis [data-animate], [data-animate-stagger]');
+  if (invAnimEls.length) {
+    var invObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          invObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    invAnimEls.forEach(function (el) { invObserver.observe(el); });
+  }
+
+  // ============================================
   // FINANCING PAGE — SCROLL ANIMATIONS
   // ============================================
   var finSections = document.querySelectorAll('#team, #finStrategiesSection');
