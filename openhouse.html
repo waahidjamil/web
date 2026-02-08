@@ -18,8 +18,7 @@
 
     /* === LEFT: PROPERTY SHOWCASE === */
     .oh-property{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;min-height:100vh}
-    .oh-property-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0B1D3A,#132D54);z-index:0}
-    /* Placeholder gradient — replace with property photo via background-image */
+    .oh-property-bg{position:absolute;inset:0;background:url('images/pembrook.jpg') center/cover no-repeat;z-index:0}
     .oh-property-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,15,31,.95) 0%,rgba(6,15,31,.4) 40%,rgba(6,15,31,.2) 100%);z-index:1}
     .oh-property-grain{position:absolute;inset:0;opacity:.025;z-index:2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
     .oh-property-orb{position:absolute;width:400px;height:400px;border-radius:50%;filter:blur(140px);background:rgba(201,169,110,.06);top:20%;left:-10%;z-index:1;animation:orbFloat 8s ease-in-out infinite}
