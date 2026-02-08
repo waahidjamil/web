@@ -278,6 +278,7 @@
       if(data.success){
         document.getElementById('formWrap').classList.add('hidden');
         document.getElementById('successMsg').classList.add('show');
+        setTimeout(function(){location.reload();},15000);
       }else{
         alert('Something went wrong. Please try again.');
         btn.disabled=false;
