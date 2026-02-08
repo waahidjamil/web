@@ -174,26 +174,26 @@
         <p>We'd love to keep you updated on this property.</p>
       </div>
 
-      <form class="oh-form" id="ohForm" onsubmit="handleSubmit(event)">
+      <form class="oh-form" id="ohForm" onsubmit="handleSubmit(event)" autocomplete="off">
         <div class="oh-row">
           <div class="oh-field">
             <label>First Name</label>
-            <input type="text" placeholder="John" required>
+            <input type="text" placeholder="John" required autocomplete="new-password">
           </div>
           <div class="oh-field">
             <label>Last Name</label>
-            <input type="text" placeholder="Smith" required>
+            <input type="text" placeholder="Smith" required autocomplete="new-password">
           </div>
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Email</label>
-          <input type="email" placeholder="john@example.com" required>
+          <input type="email" placeholder="john@example.com" required autocomplete="new-password">
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Phone</label>
-          <input type="tel" placeholder="(703) 555-0123" required>
+          <input type="tel" placeholder="(703) 555-0123" required autocomplete="new-password">
         </div>
 
         <div class="oh-timeline">
