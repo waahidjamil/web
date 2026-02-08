@@ -137,21 +137,21 @@
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">First Name</label>
-                <input type="text" class="form-input" placeholder="John">
+                <input type="text" class="form-input cf-first" placeholder="John">
               </div>
               <div class="form-group">
                 <label class="form-label">Last Name</label>
-                <input type="text" class="form-input" placeholder="Smith">
+                <input type="text" class="form-input cf-last" placeholder="Smith">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label">Email</label>
-                <input type="email" class="form-input" placeholder="john@example.com">
+                <input type="email" class="form-input cf-email" placeholder="john@example.com">
               </div>
               <div class="form-group">
                 <label class="form-label">Phone</label>
-                <input type="tel" class="form-input" placeholder="(555) 000-0000">
+                <input type="tel" class="form-input cf-phone" placeholder="(555) 000-0000">
               </div>
             </div>
             <div class="step-buttons">
@@ -166,7 +166,7 @@
             <div class="step-sub">This helps us connect you with the right person.</div>
             <div class="form-group">
               <label class="form-label">I'm Interested In</label>
-              <select class="form-input form-select">
+              <select class="form-input form-select cf-interest">
                 <option>Select an option</option>
                 <option>Sell My Home</option>
                 <option>Buy a Home</option>
@@ -189,12 +189,18 @@
             <div class="step-sub">The more we know, the better we can help.</div>
             <div class="form-group">
               <label class="form-label">Message</label>
-              <textarea class="form-input form-textarea" rows="5" placeholder="Tell us about what you're looking for..."></textarea>
+              <textarea class="form-input form-textarea cf-message" rows="5" placeholder="Tell us about what you're looking for..."></textarea>
             </div>
             <div class="step-buttons">
               <button type="button" class="btn-back">&larr; Back</button>
               <button type="button" class="btn-submit">Send Message <svg class="btn-icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
             </div>
+          </div>
+
+          <div class="form-step cf-success" style="display:none;text-align:center;padding:60px 20px;">
+            <div style="font-size:3rem;margin-bottom:16px;color:#C9A96E;">&#10003;</div>
+            <h3 style="font-size:1.6rem;font-weight:700;color:#0B1D3A;margin-bottom:8px;">You're All Set!</h3>
+            <p style="font-size:.95rem;color:#8A8A8A;font-weight:300;line-height:1.7;">Thank you for reaching out. A member of the Jamil Realty team will follow up with you shortly.</p>
           </div>
         </div>
 

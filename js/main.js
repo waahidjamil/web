@@ -292,6 +292,47 @@ document.addEventListener('DOMContentLoaded', function () {
         updateFormProgress();
       });
     });
+
+    var submitBtn = cardForm.querySelector('.btn-submit');
+    if (submitBtn) {
+      submitBtn.addEventListener('click', async function () {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        try {
+          var res = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              access_key: '407da504-674f-455d-b9fc-5a2280e60866',
+              subject: 'New Contact Lead - Jamil Realty',
+              firstName: document.querySelector('.cf-first').value,
+              lastName: document.querySelector('.cf-last').value,
+              email: document.querySelector('.cf-email').value,
+              phone: document.querySelector('.cf-phone').value,
+              interest: document.querySelector('.cf-interest').value,
+              message: document.querySelector('.cf-message').value
+            })
+          });
+          var data = await res.json();
+          if (data.success) {
+            formSteps.forEach(function (s) { s.classList.remove('active'); });
+            var successEl = document.querySelector('.cf-success');
+            successEl.style.display = 'block';
+            successEl.classList.add('active');
+            if (progressBar) progressBar.style.width = '100%';
+            if (stepNumEl) stepNumEl.textContent = '3';
+          } else {
+            alert('Something went wrong. Please try again.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Send Message <svg class="btn-icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+          }
+        } catch (err) {
+          alert('Something went wrong. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Send Message <svg class="btn-icon-sm" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        }
+      });
+    }
   }
 
   // ============================================
