@@ -151,7 +151,7 @@
               </div>
               <div class="form-group">
                 <label class="form-label">Phone</label>
-                <input type="tel" class="form-input cf-phone" placeholder="(555) 000-0000">
+                <input type="tel" class="form-input cf-phone" placeholder="(555) 000-0000" inputmode="numeric" oninput="formatContactPhone(this)">
               </div>
             </div>
             <div class="step-buttons">
@@ -287,5 +287,15 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    function formatContactPhone(el){
+      var d=el.value.replace(/[^0-9]/g,'').substring(0,10);
+      var f='';
+      if(d.length>0) f='('+d.substring(0,3);
+      if(d.length>=3) f='('+d.substring(0,3)+') '+d.substring(3,6);
+      if(d.length>=6) f='('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
+      el.value=f;
+    }
+  </script>
 </body>
 </html>
