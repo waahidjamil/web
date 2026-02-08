@@ -351,8 +351,23 @@
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-xl);
+    text-align: center;
   }
-  
+
+  .footer-brand,
+  .footer-description,
+  .footer-heading,
+  .footer-links,
+  .footer-links a,
+  .footer-disclaimer {
+    text-align: center;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+  }
+
   .footer-bottom {
     flex-direction: column;
     gap: var(--space-md);
