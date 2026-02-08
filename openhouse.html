@@ -121,9 +121,17 @@
       .oh-timeline-options{gap:6px}
       .oh-timeline-opt{font-size:.65rem;padding:6px 14px}
     }
+
+    .oh-fs-btn{position:fixed;top:12px;right:12px;z-index:9999;width:36px;height:36px;border:none;border-radius:6px;background:rgba(255,255,255,.12);backdrop-filter:blur(6px);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+    .oh-fs-btn:hover{background:rgba(255,255,255,.25)}
+    .oh-fs-btn svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
   </style>
 </head>
 <body>
+
+<button class="oh-fs-btn" onclick="toggleFS()" title="Toggle fullscreen">
+  <svg viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/></svg>
+</button>
 
 <div class="oh-layout">
 
@@ -289,6 +297,13 @@
       alert('Something went wrong. Please try again.');
       btn.disabled=false;
       btn.querySelector('span').textContent='Submit';
+    }
+  }
+  function toggleFS(){
+    if(!document.fullscreenElement){
+      document.documentElement.requestFullscreen().catch(function(){});
+    }else{
+      document.exitFullscreen();
     }
   }
 </script>
