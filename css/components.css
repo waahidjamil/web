@@ -38,22 +38,6 @@
   display: flex;
   align-items: center;
   line-height: 1;
-  position: relative;
-  overflow: hidden;
-}
-.navbar-brand::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
-  animation: logoShine 4s ease-in-out infinite;
-}
-@keyframes logoShine {
-  0% { left: -100%; }
-  50%, 100% { left: 200%; }
 }
 
 .navbar-brand svg {
