@@ -233,7 +233,7 @@
             </div>
             <div class="cash-form-group">
               <label>Phone</label>
-              <input type="tel" class="cash-in-phone" placeholder="(703) 000-0000" required>
+              <input type="tel" class="cash-in-phone" placeholder="(703) 000-0000" required inputmode="numeric" oninput="formatCashPhone(this)">
             </div>
             <div class="cash-form-group">
               <label>Property Address</label>
@@ -354,6 +354,14 @@
 
   <script src="js/main.js"></script>
   <script>
+    function formatCashPhone(el){
+      var d=el.value.replace(/[^0-9]/g,'').substring(0,10);
+      var f='';
+      if(d.length>0) f='('+d.substring(0,3);
+      if(d.length>=3) f='('+d.substring(0,3)+') '+d.substring(3,6);
+      if(d.length>=6) f='('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
+      el.value=f;
+    }
     document.getElementById('cashSubmitBtn').addEventListener('click', async function () {
       var btn = this;
       var name = document.querySelector('.cash-in-name');
