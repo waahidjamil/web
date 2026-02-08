@@ -201,7 +201,7 @@
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Phone</label>
-          <input type="text" class="oh-input-ph" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+          <input type="text" class="oh-input-ph" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" inputmode="numeric" oninput="formatPhone(this)">
         </div>
 
         <div class="oh-timeline">
@@ -254,6 +254,14 @@
 </div>
 
 <script>
+  function formatPhone(el){
+    var d=el.value.replace(/[^0-9]/g,'').substring(0,10);
+    var f='';
+    if(d.length>0) f='('+d.substring(0,3);
+    if(d.length>=3) f='('+d.substring(0,3)+') '+d.substring(3,6);
+    if(d.length>=6) f='('+d.substring(0,3)+') '+d.substring(3,6)+'-'+d.substring(6);
+    el.value=f;
+  }
   function selectTimeline(el){
     document.querySelectorAll('.oh-timeline-opt').forEach(o=>o.classList.remove('active'));
     el.classList.add('active');
