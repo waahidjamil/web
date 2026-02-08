@@ -35,21 +35,13 @@
 }
 
 .navbar-brand {
-  font-family: var(--font-heading);
-  font-size: var(--text-lg);
-  font-weight: var(--weight-bold);
-  color: var(--color-navy);
-  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  line-height: 1;
 }
 
-.navbar-logo {
-  height: 90px;
-  width: auto;
+.navbar-brand svg {
   display: block;
-}
-
-.navbar-brand:hover {
-  color: var(--color-navy);
 }
 
 .navbar-links {
