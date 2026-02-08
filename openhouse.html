@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open House Sign-In | Jamil Realty</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Outfit',sans-serif;background:#060F1F;color:#fff;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    :root{--navy:#0B1D3A;--navy-dark:#060F1F;--navy-light:#132D54;--gold:#C9A96E;--gold-light:#D4BC8E;--white:#fff;--off-white:#F7F7F5;--mid-gray:#8A8A8A;--dark-gray:#3A3A3A}
+
+    .oh-layout{display:grid;grid-template-columns:1fr 1fr;min-height:100vh}
+
+    /* === LEFT: PROPERTY SHOWCASE === */
+    .oh-property{position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;min-height:100vh}
+    .oh-property-bg{position:absolute;inset:0;background:linear-gradient(160deg,#0B1D3A,#132D54);z-index:0}
+    /* Placeholder gradient — replace with property photo via background-image */
+    .oh-property-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,15,31,.95) 0%,rgba(6,15,31,.4) 40%,rgba(6,15,31,.2) 100%);z-index:1}
+    .oh-property-grain{position:absolute;inset:0;opacity:.025;z-index:2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+    .oh-property-orb{position:absolute;width:400px;height:400px;border-radius:50%;filter:blur(140px);background:rgba(201,169,110,.06);top:20%;left:-10%;z-index:1;animation:orbFloat 8s ease-in-out infinite}
+    @keyframes orbFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+
+    .oh-property-content{position:relative;z-index:3}
+    .oh-logo{display:flex;align-items:center;gap:14px;margin-bottom:40px}
+    .oh-logo-icon{width:44px;height:44px;background:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;color:var(--navy)}
+    .oh-logo-text{font-size:16px;font-weight:700;letter-spacing:2px;color:var(--white)}
+
+    .oh-property-tag{display:inline-block;font-size:.6rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);background:var(--gold);padding:6px 16px;border-radius:2px;margin-bottom:16px}
+    .oh-property-address{font-size:2.4rem;font-weight:700;color:var(--white);line-height:1.15;margin-bottom:8px}
+    .oh-property-city{font-size:1rem;font-weight:300;color:rgba(255,255,255,.4);margin-bottom:28px}
+
+    .oh-property-stats{display:flex;gap:32px;margin-bottom:28px}
+    .oh-stat{text-align:center}
+    .oh-stat-value{font-size:1.8rem;font-weight:700;color:var(--white)}
+    .oh-stat-label{font-size:.6rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:2px}
+
+    .oh-property-price{font-size:2.8rem;font-weight:800;color:var(--gold);letter-spacing:-.02em}
+
+    .oh-agent-bar{display:flex;align-items:center;gap:14px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.06)}
+    .oh-agent-avatar{width:42px;height:42px;border-radius:50%;background:rgba(201,169,110,.15);border:1px solid rgba(201,169,110,.25);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:var(--gold)}
+    .oh-agent-info{}
+    .oh-agent-name{font-size:.85rem;font-weight:600;color:var(--white)}
+    .oh-agent-role{font-size:.7rem;color:rgba(255,255,255,.35)}
+
+    /* === RIGHT: SIGN-IN FORM === */
+    .oh-form-side{background:var(--white);display:flex;flex-direction:column;justify-content:center;padding:50px 60px;overflow-y:auto}
+
+    .oh-form-header{text-align:center;margin-bottom:36px}
+    .oh-form-header-label{font-size:.6rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+    .oh-form-header h2{font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:4px}
+    .oh-form-header p{font-size:.85rem;color:var(--mid-gray);font-weight:300}
+
+    .oh-form{display:flex;flex-direction:column;gap:0}
+    .oh-row{display:grid;grid-template-columns:1fr 1fr;gap:0}
+    .oh-field{padding:18px 20px;border-bottom:1px solid rgba(11,29,58,.06);position:relative}
+    .oh-field-full{grid-column:span 2}
+    .oh-field label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:6px}
+    .oh-field input,.oh-field select{width:100%;border:none;outline:none;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:400;color:var(--navy);background:transparent;padding:4px 0}
+    .oh-field input::placeholder{color:#C0C0C0}
+    .oh-field select{cursor:pointer;-webkit-appearance:none;appearance:none}
+    .oh-field:not(:last-child){border-right:1px solid rgba(11,29,58,.06)}
+    .oh-field-full:not(:last-child){border-right:none}
+    .oh-field:focus-within{background:rgba(201,169,110,.03)}
+    .oh-field:focus-within label{color:var(--gold)}
+
+    /* Timeline question */
+    .oh-timeline{padding:20px 20px;border-bottom:1px solid rgba(11,29,58,.06)}
+    .oh-timeline label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--mid-gray);margin-bottom:12px}
+    .oh-timeline-options{display:flex;gap:8px;flex-wrap:wrap}
+    .oh-timeline-opt{font-size:.72rem;font-weight:500;padding:8px 18px;border-radius:50px;border:1px solid rgba(11,29,58,.1);color:var(--dark-gray);cursor:pointer;transition:all .2s;background:transparent}
+    .oh-timeline-opt:hover{border-color:var(--gold);color:var(--gold)}
+    .oh-timeline-opt.active{background:var(--gold);color:var(--navy);border-color:var(--gold);font-weight:600}
+
+    /* Agent toggle */
+    .oh-toggle-row{padding:20px 20px;border-bottom:1px solid rgba(11,29,58,.06);display:flex;align-items:center;justify-content:space-between}
+    .oh-toggle-label{font-size:.85rem;font-weight:500;color:var(--dark-gray)}
+    .oh-toggle{position:relative;width:52px;height:28px;cursor:pointer}
+    .oh-toggle input{opacity:0;width:0;height:0}
+    .oh-toggle-slider{position:absolute;inset:0;background:rgba(11,29,58,.1);border-radius:50px;transition:all .3s}
+    .oh-toggle-slider::before{content:'';position:absolute;width:22px;height:22px;border-radius:50%;background:var(--white);top:3px;left:3px;transition:all .3s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+    .oh-toggle input:checked + .oh-toggle-slider{background:var(--gold)}
+    .oh-toggle input:checked + .oh-toggle-slider::before{transform:translateX(24px)}
+    .oh-toggle-text{font-size:.7rem;font-weight:600;color:var(--mid-gray);margin-left:10px}
+
+    /* Submit */
+    .oh-submit{margin-top:24px;width:100%;padding:20px;background:var(--navy);color:var(--white);border:none;border-radius:4px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:all .3s;position:relative;overflow:hidden}
+    .oh-submit::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(201,169,110,.15),transparent);transition:left .5s}
+    .oh-submit:hover::before{left:100%}
+    .oh-submit:hover{background:var(--gold);color:var(--navy);transform:translateY(-1px);box-shadow:0 10px 30px rgba(201,169,110,.2)}
+    .oh-submit svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+    /* Legal */
+    .oh-legal{margin-top:20px;font-size:.58rem;color:#B0B0B0;line-height:1.6;text-align:center;padding:0 10px}
+    .oh-legal a{color:var(--gold);text-decoration:underline}
+
+    /* Success state */
+    .oh-success{display:none;text-align:center;padding:60px 40px}
+    .oh-success.show{display:block}
+    .oh-success-icon{font-size:3rem;margin-bottom:16px}
+    .oh-success h2{font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+    .oh-success p{font-size:.95rem;color:var(--mid-gray);font-weight:300;line-height:1.7}
+
+    .oh-form-wrap.hidden{display:none}
+
+    /* Footer */
+    .oh-form-footer{margin-top:auto;padding-top:24px;text-align:center}
+    .oh-form-footer p{font-size:.6rem;color:#C0C0C0;letter-spacing:.05em}
+
+    @media(max-width:900px){
+      .oh-layout{grid-template-columns:1fr}
+      .oh-property{min-height:50vh;padding:30px}
+      .oh-property-address{font-size:1.6rem}
+      .oh-property-price{font-size:2rem}
+      .oh-form-side{padding:30px 24px}
+      .oh-row{grid-template-columns:1fr}
+      .oh-field:not(:last-child){border-right:none}
+      .oh-timeline-options{gap:6px}
+      .oh-timeline-opt{font-size:.65rem;padding:6px 14px}
+    }
+  </style>
+</head>
+<body>
+
+<div class="oh-layout">
+
+  <!-- LEFT: PROPERTY -->
+  <div class="oh-property">
+    <!-- Replace background with property photo: style="background:url('your-photo.jpg') center/cover" -->
+    <div class="oh-property-bg"></div>
+    <div class="oh-property-grain"></div>
+    <div class="oh-property-orb"></div>
+
+    <div class="oh-property-content">
+      <div class="oh-logo">
+        <div class="oh-logo-icon">JR</div>
+        <div class="oh-logo-text">JAMIL REALTY</div>
+      </div>
+
+      <div class="oh-property-tag">Open House</div>
+      <h1 class="oh-property-address">4375 Pembrook Village Dr #62</h1>
+      <p class="oh-property-city">Alexandria, VA 22309</p>
+
+      <div class="oh-property-stats">
+        <div class="oh-stat"><div class="oh-stat-value">3</div><div class="oh-stat-label">Beds</div></div>
+        <div class="oh-stat"><div class="oh-stat-value">2</div><div class="oh-stat-label">Baths</div></div>
+        <div class="oh-stat"><div class="oh-stat-value">1,152</div><div class="oh-stat-label">Sq. Ft.</div></div>
+        <div class="oh-stat"><div class="oh-stat-value">2024</div><div class="oh-stat-label">Year</div></div>
+      </div>
+
+      <div class="oh-property-price">$325,000</div>
+
+      <div class="oh-agent-bar">
+        <div class="oh-agent-avatar">SJ</div>
+        <div class="oh-agent-info">
+          <div class="oh-agent-name">Saad Jamil</div>
+          <div class="oh-agent-role">Listing Agent · (703) 782-4830</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="oh-form-side">
+
+    <div class="oh-form-wrap" id="formWrap">
+      <div class="oh-form-header">
+        <div class="oh-form-header-label">Welcome</div>
+        <h2>Sign In</h2>
+        <p>We'd love to keep you updated on this property.</p>
+      </div>
+
+      <form class="oh-form" id="ohForm" onsubmit="handleSubmit(event)">
+        <div class="oh-row">
+          <div class="oh-field">
+            <label>First Name</label>
+            <input type="text" placeholder="John" required>
+          </div>
+          <div class="oh-field">
+            <label>Last Name</label>
+            <input type="text" placeholder="Smith" required>
+          </div>
+        </div>
+
+        <div class="oh-field oh-field-full" style="border-right:none">
+          <label>Email</label>
+          <input type="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="oh-field oh-field-full" style="border-right:none">
+          <label>Phone</label>
+          <input type="tel" placeholder="(703) 555-0123" required>
+        </div>
+
+        <div class="oh-timeline">
+          <label>How soon are you looking to buy?</label>
+          <div class="oh-timeline-options">
+            <div class="oh-timeline-opt" onclick="selectTimeline(this)">ASAP</div>
+            <div class="oh-timeline-opt" onclick="selectTimeline(this)">1–3 Months</div>
+            <div class="oh-timeline-opt" onclick="selectTimeline(this)">3–6 Months</div>
+            <div class="oh-timeline-opt" onclick="selectTimeline(this)">6–12 Months</div>
+            <div class="oh-timeline-opt" onclick="selectTimeline(this)">Just Browsing</div>
+          </div>
+        </div>
+
+        <div class="oh-toggle-row">
+          <span class="oh-toggle-label">Are you working with an agent?</span>
+          <div style="display:flex;align-items:center">
+            <label class="oh-toggle">
+              <input type="checkbox" id="agentToggle">
+              <span class="oh-toggle-slider"></span>
+            </label>
+            <span class="oh-toggle-text" id="agentText">NO</span>
+          </div>
+        </div>
+
+        <div class="oh-toggle-row">
+          <span class="oh-toggle-label">Are you pre-approved?</span>
+          <div style="display:flex;align-items:center">
+            <label class="oh-toggle">
+              <input type="checkbox" id="preApproved">
+              <span class="oh-toggle-slider"></span>
+            </label>
+            <span class="oh-toggle-text" id="preApprovedText">NO</span>
+          </div>
+        </div>
+
+        <button type="submit" class="oh-submit">
+          <span>Submit</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </form>
+
+      <div class="oh-legal">
+        By proceeding, you expressly consent to receive texts and calls at the number you provided, including marketing, from Samson Properties about real estate related matters, but not as a condition of purchase. Message frequency varies. Text Help for help and Stop to cancel.
+        <br><br>
+        Jamil Realty operates under Samson Properties · 1602 Village Market Blvd SE #255, Leesburg, VA 20175 · Equal Housing Opportunity
+      </div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="oh-success" id="successMsg">
+      <div class="oh-success-icon">✓</div>
+      <h2>You're All Set!</h2>
+      <p>Thank you for visiting our open house. A member of the Jamil Realty team will follow up with you shortly.</p>
+    </div>
+
+    <div class="oh-form-footer">
+      <p>JAMIL REALTY · jamilrealty.com · (703) 782-4830</p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function selectTimeline(el){
+    document.querySelectorAll('.oh-timeline-opt').forEach(o=>o.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  document.getElementById('agentToggle').addEventListener('change',function(){
+    document.getElementById('agentText').textContent=this.checked?'YES':'NO';
+  });
+  document.getElementById('preApproved').addEventListener('change',function(){
+    document.getElementById('preApprovedText').textContent=this.checked?'YES':'NO';
+  });
+
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('formWrap').classList.add('hidden');
+    document.getElementById('successMsg').classList.add('show');
+  }
+</script>
+
+</body>
+</html>
