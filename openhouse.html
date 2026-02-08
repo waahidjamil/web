@@ -177,22 +177,22 @@
         <div class="oh-row">
           <div class="oh-field">
             <label>First Name</label>
-            <input type="text" placeholder="John" required autocomplete="new-password">
+            <input type="text" id="firstName" placeholder="John" required autocomplete="new-password">
           </div>
           <div class="oh-field">
             <label>Last Name</label>
-            <input type="text" placeholder="Smith" required autocomplete="new-password">
+            <input type="text" id="lastName" placeholder="Smith" required autocomplete="new-password">
           </div>
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Email</label>
-          <input type="email" placeholder="john@example.com" required autocomplete="new-password">
+          <input type="email" id="email" placeholder="john@example.com" required autocomplete="new-password">
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Phone</label>
-          <input type="tel" placeholder="(703) 555-0123" required autocomplete="new-password">
+          <input type="tel" id="phone" placeholder="(703) 555-0123" required autocomplete="new-password">
         </div>
 
         <div class="oh-timeline">
@@ -253,10 +253,41 @@
   document.getElementById('agentToggle').addEventListener('change',function(){
     document.getElementById('agentText').textContent=this.checked?'YES':'NO';
   });
-  function handleSubmit(e){
+  async function handleSubmit(e){
     e.preventDefault();
-    document.getElementById('formWrap').classList.add('hidden');
-    document.getElementById('successMsg').classList.add('show');
+    var btn=document.querySelector('.oh-submit');
+    btn.disabled=true;
+    btn.querySelector('span').textContent='Submitting...';
+    var timeline=document.querySelector('.oh-timeline-opt.active');
+    try{
+      var res=await fetch('https://api.web3forms.com/submit',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({
+          access_key:'07111ae6-8004-4794-bdf6-f0acbe5c69a7',
+          subject:'New Open House Lead - 4375 Pembrook Village Dr #62',
+          firstName:document.getElementById('firstName').value,
+          lastName:document.getElementById('lastName').value,
+          email:document.getElementById('email').value,
+          phone:document.getElementById('phone').value,
+          timeline:timeline?timeline.textContent:'Not selected',
+          workingWithAgent:document.getElementById('agentToggle').checked?'Yes':'No'
+        })
+      });
+      var data=await res.json();
+      if(data.success){
+        document.getElementById('formWrap').classList.add('hidden');
+        document.getElementById('successMsg').classList.add('show');
+      }else{
+        alert('Something went wrong. Please try again.');
+        btn.disabled=false;
+        btn.querySelector('span').textContent='Submit';
+      }
+    }catch(err){
+      alert('Something went wrong. Please try again.');
+      btn.disabled=false;
+      btn.querySelector('span').textContent='Submit';
+    }
   }
 </script>
 
