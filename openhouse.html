@@ -174,25 +174,26 @@
       </div>
 
       <form class="oh-form" id="ohForm" onsubmit="handleSubmit(event)" autocomplete="off">
+        <input type="text" name="honeypot" style="display:none" tabindex="-1">
         <div class="oh-row">
           <div class="oh-field">
             <label>First Name</label>
-            <input type="text" id="firstName" name="oh-fn-x7k" placeholder="John" required autocomplete="off">
+            <input type="text" class="oh-input-fn" name="oh-fn-x7k" placeholder="John" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
           </div>
           <div class="oh-field">
             <label>Last Name</label>
-            <input type="text" id="lastName" name="oh-ln-q3m" placeholder="Smith" required autocomplete="off">
+            <input type="text" class="oh-input-ln" name="oh-ln-q3m" placeholder="Smith" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
           </div>
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Email</label>
-          <input type="email" id="email" name="oh-em-p9w" placeholder="john@example.com" required autocomplete="off">
+          <input type="text" class="oh-input-em" name="oh-em-p9w" placeholder="john@example.com" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
         </div>
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Phone</label>
-          <input type="tel" id="phone" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off">
+          <input type="text" class="oh-input-ph" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
         </div>
 
         <div class="oh-timeline">
@@ -210,10 +211,10 @@
           <span class="oh-toggle-label">Are you working with an agent?</span>
           <div style="display:flex;align-items:center">
             <label class="oh-toggle">
-              <input type="checkbox" id="agentToggle">
+              <input type="checkbox" class="oh-input-agent">
               <span class="oh-toggle-slider"></span>
             </label>
-            <span class="oh-toggle-text" id="agentText">NO</span>
+            <span class="oh-toggle-text oh-agent-text">NO</span>
           </div>
         </div>
 
@@ -250,8 +251,8 @@
     el.classList.add('active');
   }
 
-  document.getElementById('agentToggle').addEventListener('change',function(){
-    document.getElementById('agentText').textContent=this.checked?'YES':'NO';
+  document.querySelector('.oh-input-agent').addEventListener('change',function(){
+    document.querySelector('.oh-agent-text').textContent=this.checked?'YES':'NO';
   });
   async function handleSubmit(e){
     e.preventDefault();
@@ -266,12 +267,12 @@
         body:JSON.stringify({
           access_key:'07111ae6-8004-4794-bdf6-f0acbe5c69a7',
           subject:'New Open House Lead - 4375 Pembrook Village Dr #62',
-          firstName:document.getElementById('firstName').value,
-          lastName:document.getElementById('lastName').value,
-          email:document.getElementById('email').value,
-          phone:document.getElementById('phone').value,
+          firstName:document.querySelector('.oh-input-fn').value,
+          lastName:document.querySelector('.oh-input-ln').value,
+          email:document.querySelector('.oh-input-em').value,
+          phone:document.querySelector('.oh-input-ph').value,
           timeline:timeline?timeline.textContent:'Not selected',
-          workingWithAgent:document.getElementById('agentToggle').checked?'Yes':'No'
+          workingWithAgent:document.querySelector('.oh-input-agent').checked?'Yes':'No'
         })
       });
       var data=await res.json();
