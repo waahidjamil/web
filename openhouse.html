@@ -155,9 +155,9 @@
       <div class="oh-property-price">$325,000</div>
 
       <div class="oh-agent-bar">
-        <div class="oh-agent-avatar">SJ</div>
+        <img src="images/Waahid Headshot.png" alt="Waahid Jamil" style="width:42px;height:42px;border-radius:50%;object-fit:cover">
         <div class="oh-agent-info">
-          <div class="oh-agent-name">Saad Jamil</div>
+          <div class="oh-agent-name">Waahid Jamil</div>
           <div class="oh-agent-role">Listing Agent · (703) 782-4830</div>
         </div>
       </div>
@@ -218,17 +218,6 @@
           </div>
         </div>
 
-        <div class="oh-toggle-row">
-          <span class="oh-toggle-label">Are you pre-approved?</span>
-          <div style="display:flex;align-items:center">
-            <label class="oh-toggle">
-              <input type="checkbox" id="preApproved">
-              <span class="oh-toggle-slider"></span>
-            </label>
-            <span class="oh-toggle-text" id="preApprovedText">NO</span>
-          </div>
-        </div>
-
         <button type="submit" class="oh-submit">
           <span>Submit</span>
           <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -265,10 +254,6 @@
   document.getElementById('agentToggle').addEventListener('change',function(){
     document.getElementById('agentText').textContent=this.checked?'YES':'NO';
   });
-  document.getElementById('preApproved').addEventListener('change',function(){
-    document.getElementById('preApprovedText').textContent=this.checked?'YES':'NO';
-  });
-
   function handleSubmit(e){
     e.preventDefault();
     document.getElementById('formWrap').classList.add('hidden');
