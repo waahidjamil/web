@@ -222,38 +222,45 @@
           </ul>
         </div>
         <div class="cash-form-right">
-          <div class="cash-form-group">
-            <label>Full Name</label>
-            <input type="text" placeholder="Your full name">
+          <div class="cash-form-fields" id="cashFormFields">
+            <div class="cash-form-group">
+              <label>Full Name</label>
+              <input type="text" class="cash-in-name" placeholder="Your full name" required>
+            </div>
+            <div class="cash-form-group">
+              <label>Email</label>
+              <input type="email" class="cash-in-email" placeholder="your@email.com" required>
+            </div>
+            <div class="cash-form-group">
+              <label>Phone</label>
+              <input type="tel" class="cash-in-phone" placeholder="(703) 000-0000" required>
+            </div>
+            <div class="cash-form-group">
+              <label>Property Address</label>
+              <input type="text" class="cash-in-address" placeholder="123 Main St, City, VA" required>
+            </div>
+            <div class="cash-form-group">
+              <label>Ideal Timeline</label>
+              <select class="cash-in-timeline">
+                <option>Select your timeline</option>
+                <option>As soon as possible (7 days)</option>
+                <option>Within 30 days</option>
+                <option>Within 60 days</option>
+                <option>Flexible / not sure</option>
+              </select>
+            </div>
+            <button class="cash-form-submit" id="cashSubmitBtn">
+              Get My Cash Offer
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <p class="cash-form-consent">By submitting this form, you agree to be contacted by Jamil Realty via phone, email, or text. Message and data rates may apply.</p>
+            <p class="cash-form-lock">🔒 Private & Confidential. No Spam.</p>
           </div>
-          <div class="cash-form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com">
+          <div id="cashFormSuccess" style="display:none;text-align:center;padding:60px 20px;">
+            <div style="font-size:3rem;margin-bottom:16px;color:#C9A96E;">&#10003;</div>
+            <h3 style="font-size:1.6rem;font-weight:700;color:#0B1D3A;margin-bottom:8px;">You're All Set!</h3>
+            <p style="font-size:.95rem;color:#8A8A8A;font-weight:300;line-height:1.7;">Thank you for your interest. A member of the Jamil Realty team will follow up with your cash offer shortly.</p>
           </div>
-          <div class="cash-form-group">
-            <label>Phone</label>
-            <input type="tel" placeholder="(703) 000-0000">
-          </div>
-          <div class="cash-form-group">
-            <label>Property Address</label>
-            <input type="text" placeholder="123 Main St, City, VA">
-          </div>
-          <div class="cash-form-group">
-            <label>Ideal Timeline</label>
-            <select>
-              <option>Select your timeline</option>
-              <option>As soon as possible (7 days)</option>
-              <option>Within 30 days</option>
-              <option>Within 60 days</option>
-              <option>Flexible / not sure</option>
-            </select>
-          </div>
-          <button class="cash-form-submit">
-            Get My Cash Offer
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </button>
-          <p class="cash-form-consent">By submitting this form, you agree to be contacted by Jamil Realty via phone, email, or text. Message and data rates may apply.</p>
-          <p class="cash-form-lock">🔒 Private & Confidential. No Spam.</p>
         </div>
       </div>
     </div>
@@ -346,5 +353,48 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    document.getElementById('cashSubmitBtn').addEventListener('click', async function () {
+      var btn = this;
+      var name = document.querySelector('.cash-in-name');
+      var email = document.querySelector('.cash-in-email');
+      var phone = document.querySelector('.cash-in-phone');
+      var address = document.querySelector('.cash-in-address');
+      if (!name.value || !email.value || !phone.value || !address.value) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      try {
+        var res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: '407da504-674f-455d-b9fc-5a2280e60866',
+            subject: 'New Cash Offer Request - Jamil Realty',
+            fullName: name.value,
+            email: email.value,
+            phone: phone.value,
+            propertyAddress: address.value,
+            idealTimeline: document.querySelector('.cash-in-timeline').value
+          })
+        });
+        var data = await res.json();
+        if (data.success) {
+          document.getElementById('cashFormFields').style.display = 'none';
+          document.getElementById('cashFormSuccess').style.display = 'block';
+        } else {
+          alert('Something went wrong. Please try again.');
+          btn.disabled = false;
+          btn.innerHTML = 'Get My Cash Offer <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+        }
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+        btn.disabled = false;
+        btn.innerHTML = 'Get My Cash Offer <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+      }
+    });
+  </script>
 </body>
 </html>
