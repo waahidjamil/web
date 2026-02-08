@@ -201,7 +201,7 @@
 
         <div class="oh-field oh-field-full" style="border-right:none">
           <label>Phone</label>
-          <input type="text" class="oh-input-ph" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')">
+          <input type="text" class="oh-input-ph" name="oh-ph-v2j" placeholder="(703) 555-0123" required autocomplete="off" readonly onfocus="this.removeAttribute('readonly')" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         </div>
 
         <div class="oh-timeline">
