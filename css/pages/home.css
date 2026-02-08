@@ -730,6 +730,7 @@
     gap: var(--space-sm) var(--space-lg);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
     box-shadow: none;
+    text-align: center;
   }
 
   .slide-in-left {
