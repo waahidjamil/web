@@ -393,12 +393,12 @@
           document.getElementById('cashFormFields').style.display = 'none';
           document.getElementById('cashFormSuccess').style.display = 'block';
         } else {
-          alert('Something went wrong. Please try again.');
+          alert('Error: ' + JSON.stringify(data));
           btn.disabled = false;
           btn.innerHTML = 'Get My Cash Offer <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
         }
       } catch (err) {
-        alert('Something went wrong. Please try again.');
+        alert('Fetch error: ' + err.message);
         btn.disabled = false;
         btn.innerHTML = 'Get My Cash Offer <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
       }
